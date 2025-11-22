@@ -75,3 +75,20 @@
 [00:15:12.038] Server  LOG      ✓ Compiled in 899ms
 [00:15:41.192] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
 [00:15:41.192] Browser LOG     Journal Snapshot received. Docs: 1
+[00:22:27.017] Server  LOG      ✓ Compiled in 532ms
+[00:22:28.810] Server  LOG      ✓ Compiled in 104ms
+[00:22:45.546] Server  LOG      ○ Compiling /focus ...
+[00:23:28.448] Server  LOG      ✓ Compiled in 1599ms
+[00:23:30.224] Browser ERROR   uncaughtError: ReferenceError: DragDropContext is not defined
+[00:23:34.680] Server  LOG      ✓ Compiled in 1761ms
+[00:23:34.889] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:23:37.529] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[00:23:37.737] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:23:38.589] Browser LOG     Firebase Config Project ID: krsna-151ef
+[00:23:40.158] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:25:05.174] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:25:05.174] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:25:05.881] Browser LOG     Journal Snapshot received. Docs: 1
+[00:25:08.160] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:25:08.160] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:25:08.160] Browser LOG     Journal Snapshot received. Docs: 1

@@ -24,6 +24,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@hello-pangea/dnd": "^18.0.1",
     "caniuse-lite": "^1.0.30001756",
     "clsx": "^2.1.1",
     "firebase": "^12.6.0",

@@ -7,4 +7,5 @@ export interface Todo {
     priority?: "low" | "medium" | "high";
     dueDate?: number;
     habitId?: string;
+    order?: number;
 }

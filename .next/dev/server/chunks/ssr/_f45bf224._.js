@@ -139,8 +139,8 @@ function useTodos() {
                     id: doc.id,
                     ...doc.data()
                 }));
-            // Client-side sort (newest first)
-            newTodos.sort((a, b)=>b.createdAt - a.createdAt);
+            // Client-side sort (by order)
+            newTodos.sort((a, b)=>(a.order || 0) - (b.order || 0));
             setTodos(newTodos);
             setLoading(false);
             setError(null);
@@ -156,6 +156,17 @@ function useTodos() {
     const addTodo = async (text, priority = "medium", habitId, dueDate)=>{
         if (!user) return;
         try {
+            // Get current max order to put new item at the top or bottom
+            // For now, let's put new items at the top (order 0) and shift others, 
+            // OR put at bottom. Let's put at top for "My Day" feel, or bottom for list feel.
+            // Actually, standard is usually bottom for new tasks, but "My Day" often puts new at top.
+            // Let's stick to the previous sort: newest first. 
+            // To maintain "newest first" visual with explicit order, we can give new items a lower order index if we sort ascending.
+            // Let's just assign a timestamp-based order or simply 0 and let reorder handle it.
+            // Better: Assign order = current min order - 1 to put at top, or max + 1 to put at bottom.
+            // Let's go with: New items go to the TOP.
+            const currentMinOrder = todos.length > 0 ? Math.min(...todos.map((t)=>t.order || 0)) : 0;
+            const newOrder = currentMinOrder - 1;
             await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["db"], "todos"), {
                 text,
                 completed: false,
@@ -163,9 +174,9 @@ function useTodos() {
                 userId: user.uid,
                 priority,
                 habitId: habitId || null,
-                dueDate: dueDate || null
+                dueDate: dueDate || null,
+                order: newOrder
             });
-        // No manual state update needed, onSnapshot will handle it
         } catch (error) {
             console.error("Error adding todo:", error);
             alert("Failed to save task. Please check your connection.");
@@ -187,13 +198,33 @@ function useTodos() {
             console.error("Error deleting todo:", error);
         }
     };
+    const reorderTodos = async (newTodos)=>{
+        // Optimistically update state
+        setTodos(newTodos);
+        try {
+            // Update order in Firestore for affected items
+            // To reduce writes, we could only update changed items, but for now we'll update all 
+            // or just the ones that need it. 
+            // A simple approach: Update all items with their new index as order.
+            const updatePromises = newTodos.map((todo, index)=>{
+                return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["updateDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["db"], "todos", todo.id), {
+                    order: index
+                });
+            });
+            await Promise.all(updatePromises);
+        } catch (error) {
+            console.error("Error reordering todos:", error);
+        // Revert state if needed (requires keeping previous state)
+        }
+    };
     return {
         todos,
         loading,
         error,
         addTodo,
         toggleTodo,
-        deleteTodo
+        deleteTodo,
+        reorderTodos
     };
 }
 }),

@@ -34,8 +34,8 @@ function useTodos() {
                     id: doc.id,
                     ...doc.data()
                 }));
-            // Client-side sort (newest first)
-            newTodos.sort((a, b)=>b.createdAt - a.createdAt);
+            // Client-side sort (by order)
+            newTodos.sort((a, b)=>(a.order || 0) - (b.order || 0));
             setTodos(newTodos);
             setLoading(false);
             setError(null);
@@ -51,6 +51,17 @@ function useTodos() {
     const addTodo = async (text, priority = "medium", habitId, dueDate)=>{
         if (!user) return;
         try {
+            // Get current max order to put new item at the top or bottom
+            // For now, let's put new items at the top (order 0) and shift others, 
+            // OR put at bottom. Let's put at top for "My Day" feel, or bottom for list feel.
+            // Actually, standard is usually bottom for new tasks, but "My Day" often puts new at top.
+            // Let's stick to the previous sort: newest first. 
+            // To maintain "newest first" visual with explicit order, we can give new items a lower order index if we sort ascending.
+            // Let's just assign a timestamp-based order or simply 0 and let reorder handle it.
+            // Better: Assign order = current min order - 1 to put at top, or max + 1 to put at bottom.
+            // Let's go with: New items go to the TOP.
+            const currentMinOrder = todos.length > 0 ? Math.min(...todos.map((t)=>t.order || 0)) : 0;
+            const newOrder = currentMinOrder - 1;
             await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["db"], "todos"), {
                 text,
                 completed: false,
@@ -58,9 +69,9 @@ function useTodos() {
                 userId: user.uid,
                 priority,
                 habitId: habitId || null,
-                dueDate: dueDate || null
+                dueDate: dueDate || null,
+                order: newOrder
             });
-        // No manual state update needed, onSnapshot will handle it
         } catch (error) {
             console.error("Error adding todo:", error);
             alert("Failed to save task. Please check your connection.");
@@ -82,13 +93,33 @@ function useTodos() {
             console.error("Error deleting todo:", error);
         }
     };
+    const reorderTodos = async (newTodos)=>{
+        // Optimistically update state
+        setTodos(newTodos);
+        try {
+            // Update order in Firestore for affected items
+            // To reduce writes, we could only update changed items, but for now we'll update all 
+            // or just the ones that need it. 
+            // A simple approach: Update all items with their new index as order.
+            const updatePromises = newTodos.map((todo, index)=>{
+                return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["updateDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["db"], "todos", todo.id), {
+                    order: index
+                });
+            });
+            await Promise.all(updatePromises);
+        } catch (error) {
+            console.error("Error reordering todos:", error);
+        // Revert state if needed (requires keeping previous state)
+        }
+    };
     return {
         todos,
         loading,
         error,
         addTodo,
         toggleTodo,
-        deleteTodo
+        deleteTodo,
+        reorderTodos
     };
 }
 }),
@@ -228,7 +259,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist
 ;
 ;
 function TodoPage() {
-    const { todos, loading, error, addTodo, toggleTodo, deleteTodo } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTodos$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useTodos"])();
+    const { todos, loading, error, addTodo, toggleTodo, deleteTodo, reorderTodos } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTodos$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useTodos"])();
     const { habits, toggleHabit } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useHabits$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useHabits"])();
     const { setCurrentTask } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useTimer$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useTimer"])();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
@@ -279,6 +310,13 @@ function TodoPage() {
         setNewTodo("");
         setDueDate(new Date().toISOString().split('T')[0]);
     };
+    const handleDragEnd = (result)=>{
+        if (!result.destination) return;
+        const items = Array.from(todos);
+        const [reorderedItem] = items.splice(result.source.index, 1);
+        items.splice(result.destination.index, 0, reorderedItem);
+        reorderTodos(items);
+    };
     const getOverdueStatus = (todo)=>{
         if (todo.completed || !todo.dueDate) return null;
         const today = new Date();
@@ -300,7 +338,7 @@ function TodoPage() {
             children: "Loading tasks..."
         }, void 0, false, {
             fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-            lineNumber: 90,
+            lineNumber: 100,
             columnNumber: 12
         }, this);
     }
@@ -313,14 +351,14 @@ function TodoPage() {
                     children: "Connection Error"
                 }, void 0, false, {
                     fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                    lineNumber: 96,
+                    lineNumber: 106,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                    lineNumber: 97,
+                    lineNumber: 107,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -328,13 +366,13 @@ function TodoPage() {
                     children: 'If you are seeing "ERR_BLOCKED_BY_CLIENT", please disable your ad blocker or check your firewall settings.'
                 }, void 0, false, {
                     fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                    lineNumber: 98,
+                    lineNumber: 108,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-            lineNumber: 95,
+            lineNumber: 105,
             columnNumber: 7
         }, this);
     }
@@ -353,7 +391,7 @@ function TodoPage() {
                             children: "My Day"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                            lineNumber: 109,
+                            lineNumber: 119,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -369,18 +407,18 @@ function TodoPage() {
                             })
                         }, void 0, false, {
                             fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                            lineNumber: 112,
+                            lineNumber: 122,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                    lineNumber: 108,
+                    lineNumber: 118,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                lineNumber: 107,
+                lineNumber: 117,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -396,7 +434,7 @@ function TodoPage() {
                                     className: "mr-3 h-6 w-6 text-[var(--color-primary)]"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                    lineNumber: 126,
+                                    lineNumber: 136,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -410,13 +448,13 @@ function TodoPage() {
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                    lineNumber: 127,
+                                    lineNumber: 137,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                            lineNumber: 125,
+                            lineNumber: 135,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -432,7 +470,7 @@ function TodoPage() {
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                    lineNumber: 138,
+                                    lineNumber: 148,
                                     columnNumber: 13
                                 }, this),
                                 newTodo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -441,219 +479,265 @@ function TodoPage() {
                                     children: "ADD"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                    lineNumber: 147,
+                                    lineNumber: 157,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                            lineNumber: 137,
+                            lineNumber: 147,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                    lineNumber: 124,
+                    lineNumber: 134,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                lineNumber: 123,
+                lineNumber: 133,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "space-y-3",
-                children: [
-                    todos.map((todo)=>{
-                        const overdueStatus = getOverdueStatus(todo);
-                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("cozy-card flex items-center justify-between px-4 py-3 transition-all hover:bg-[var(--color-bg)]", todo.completed && "opacity-60"),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DragDropContext, {
+                onDragEnd: handleDragEnd,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Droppable, {
+                    droppableId: "todos",
+                    children: (provided)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            ...provided.droppableProps,
+                            ref: provided.innerRef,
+                            className: "space-y-3",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center gap-4",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: ()=>handleToggleTodo(todo.id, !todo.completed, todo.habitId),
-                                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("transition-colors hover:scale-110", todo.completed ? "text-[var(--color-secondary)]" : "text-[var(--color-text)]"),
-                                            children: todo.completed ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__["CheckCircle"], {
-                                                className: "h-6 w-6 fill-current"
-                                            }, void 0, false, {
+                                todos.map((todo, index)=>{
+                                    const overdueStatus = getOverdueStatus(todo);
+                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Draggable, {
+                                        draggableId: todo.id,
+                                        index: index,
+                                        children: (provided)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                ref: provided.innerRef,
+                                                ...provided.draggableProps,
+                                                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("cozy-card flex items-center justify-between px-4 py-3 transition-all hover:bg-[var(--color-bg)]", todo.completed && "opacity-60"),
+                                                style: {
+                                                    ...provided.draggableProps.style,
+                                                    backgroundColor: "var(--color-card)"
+                                                },
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-4",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                ...provided.dragHandleProps,
+                                                                className: "cursor-grab opacity-50 hover:opacity-100",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(GripVertical, {
+                                                                    className: "h-5 w-5"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                    lineNumber: 196,
+                                                                    columnNumber: 29
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                lineNumber: 195,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                onClick: ()=>handleToggleTodo(todo.id, !todo.completed, todo.habitId),
+                                                                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("transition-colors hover:scale-110", todo.completed ? "text-[var(--color-secondary)]" : "text-[var(--color-text)]"),
+                                                                children: todo.completed ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__["CheckCircle"], {
+                                                                    className: "h-6 w-6 fill-current"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                    lineNumber: 206,
+                                                                    columnNumber: 31
+                                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
+                                                                    className: "h-6 w-6"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                    lineNumber: 208,
+                                                                    columnNumber: 31
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                lineNumber: 198,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex flex-col",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("text-lg font-medium transition-all", todo.completed && "line-through"),
+                                                                        style: {
+                                                                            color: "var(--color-text)"
+                                                                        },
+                                                                        children: todo.text
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                        lineNumber: 212,
+                                                                        columnNumber: 29
+                                                                    }, this),
+                                                                    overdueStatus && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "text-xs font-bold text-[var(--color-danger)]",
+                                                                        children: overdueStatus.text
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                        lineNumber: 222,
+                                                                        columnNumber: 31
+                                                                    }, this),
+                                                                    !overdueStatus && todo.dueDate && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "text-xs opacity-50",
+                                                                        style: {
+                                                                            color: "var(--color-text)"
+                                                                        },
+                                                                        children: [
+                                                                            "Due: ",
+                                                                            new Date(todo.dueDate).toLocaleDateString()
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                        lineNumber: 227,
+                                                                        columnNumber: 31
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                lineNumber: 211,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            todo.habitId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$flame$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Flame$3e$__["Flame"], {
+                                                                className: "h-4 w-4 text-[var(--color-danger)]",
+                                                                title: "Habit Task"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                lineNumber: 233,
+                                                                columnNumber: 30
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                        lineNumber: 194,
+                                                        columnNumber: 25
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2",
+                                                        children: [
+                                                            todo.priority === "high" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
+                                                                className: "h-5 w-5 fill-[var(--color-accent)] text-[var(--color-accent)]"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                lineNumber: 238,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                onClick: ()=>{
+                                                                    setCurrentTask(todo.text);
+                                                                    router.push("/focus");
+                                                                },
+                                                                className: "rounded-full p-2 text-[var(--color-primary)] hover:bg-[var(--color-bg)] transition-colors",
+                                                                title: "Focus on this task",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__["Play"], {
+                                                                    className: "h-4 w-4 fill-current"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                    lineNumber: 248,
+                                                                    columnNumber: 29
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                lineNumber: 240,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                onClick: ()=>deleteTodo(todo.id),
+                                                                className: "text-[var(--color-danger)] opacity-100 transition-opacity hover:scale-110",
+                                                                title: "Delete task",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
+                                                                    className: "h-5 w-5"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                    lineNumber: 255,
+                                                                    columnNumber: 29
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                                lineNumber: 250,
+                                                                columnNumber: 27
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                                        lineNumber: 236,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                                lineNumber: 179,
-                                                columnNumber: 21
-                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
-                                                className: "h-6 w-6"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                                lineNumber: 181,
-                                                columnNumber: 21
+                                                lineNumber: 182,
+                                                columnNumber: 23
                                             }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                            lineNumber: 171,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex flex-col",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("text-lg font-medium transition-all", todo.completed && "line-through"),
-                                                    style: {
-                                                        color: "var(--color-text)"
-                                                    },
-                                                    children: todo.text
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                                    lineNumber: 185,
-                                                    columnNumber: 19
-                                                }, this),
-                                                overdueStatus && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-xs font-bold text-[var(--color-danger)]",
-                                                    children: overdueStatus.text
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                                    lineNumber: 195,
-                                                    columnNumber: 21
-                                                }, this),
-                                                !overdueStatus && todo.dueDate && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-xs opacity-50",
-                                                    style: {
-                                                        color: "var(--color-text)"
-                                                    },
-                                                    children: [
-                                                        "Due: ",
-                                                        new Date(todo.dueDate).toLocaleDateString()
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                                    lineNumber: 200,
-                                                    columnNumber: 21
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                            lineNumber: 184,
-                                            columnNumber: 17
-                                        }, this),
-                                        todo.habitId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$flame$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Flame$3e$__["Flame"], {
-                                            className: "h-4 w-4 text-[var(--color-danger)]",
-                                            title: "Habit Task"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                            lineNumber: 206,
-                                            columnNumber: 20
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                    lineNumber: 170,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center gap-2",
-                                    children: [
-                                        todo.priority === "high" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
-                                            className: "h-5 w-5 fill-[var(--color-accent)] text-[var(--color-accent)]"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                            lineNumber: 211,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: ()=>{
-                                                setCurrentTask(todo.text);
-                                                router.push("/focus");
-                                            },
-                                            className: "rounded-full p-2 text-[var(--color-primary)] hover:bg-[var(--color-bg)] transition-colors",
-                                            title: "Focus on this task",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__["Play"], {
-                                                className: "h-4 w-4 fill-current"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                                lineNumber: 221,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                            lineNumber: 213,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: ()=>deleteTodo(todo.id),
-                                            className: "text-[var(--color-danger)] opacity-100 transition-opacity hover:scale-110",
-                                            title: "Delete task",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
-                                                className: "h-5 w-5"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                                lineNumber: 228,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                            lineNumber: 223,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                    lineNumber: 209,
-                                    columnNumber: 15
-                                }, this)
+                                    }, todo.id, false, {
+                                        fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                                        lineNumber: 180,
+                                        columnNumber: 19
+                                    }, this);
+                                }),
+                                provided.placeholder
                             ]
-                        }, todo.id, true, {
+                        }, void 0, true, {
                             fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                            lineNumber: 163,
+                            lineNumber: 171,
                             columnNumber: 13
-                        }, this);
-                    }),
-                    todos.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-col items-center justify-center py-12 text-center opacity-50",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__["CheckCircle"], {
-                                className: "mb-4 h-16 w-16 text-[var(--color-secondary)]"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                lineNumber: 236,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-xl font-bold",
-                                style: {
-                                    color: "var(--color-text)"
-                                },
-                                children: "All caught up!"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                lineNumber: 237,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                style: {
-                                    color: "var(--color-text)"
-                                },
-                                children: "Enjoy your day."
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                                lineNumber: 240,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                        }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                    lineNumber: 169,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                lineNumber: 168,
+                columnNumber: 7
+            }, this),
+            todos.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex flex-col items-center justify-center py-12 text-center opacity-50",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__["CheckCircle"], {
+                        className: "mb-4 h-16 w-16 text-[var(--color-secondary)]"
+                    }, void 0, false, {
                         fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                        lineNumber: 235,
+                        lineNumber: 271,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-xl font-bold",
+                        style: {
+                            color: "var(--color-text)"
+                        },
+                        children: "All caught up!"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                        lineNumber: 272,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        style: {
+                            color: "var(--color-text)"
+                        },
+                        children: "Enjoy your day."
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
+                        lineNumber: 275,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-                lineNumber: 158,
-                columnNumber: 7
+                lineNumber: 270,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(dashboard)/todo/page.tsx",
-        lineNumber: 106,
+        lineNumber: 116,
         columnNumber: 5
     }, this);
 }

@@ -5,11 +5,12 @@ import { useTodos } from "@/hooks/useTodos";
 import { useHabits } from "@/hooks/useHabits";
 import { useTimer } from "@/hooks/useTimer";
 import { useRouter } from "next/navigation";
-import { Trash2, CheckCircle, Circle, Plus, Star, Play, Flame } from "lucide-react";
+import { Trash2, CheckCircle, Circle, Plus, Star, Play, Flame, GripVertical } from "lucide-react";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import clsx from "clsx";
 
 export default function TodoPage() {
-  const { todos, loading, error, addTodo, toggleTodo, deleteTodo } = useTodos();
+  const { todos, loading, error, addTodo, toggleTodo, deleteTodo, reorderTodos } = useTodos();
   const { habits, toggleHabit } = useHabits();
   const { setCurrentTask } = useTimer();
   const router = useRouter();
@@ -69,6 +70,16 @@ export default function TodoPage() {
     await addTodo(newTodo, "medium", undefined, dueDateTimestamp);
     setNewTodo("");
     setDueDate(new Date().toISOString().split('T')[0]);
+  };
+
+  const handleDragEnd = (result: any) => {
+    if (!result.destination) return;
+
+    const items = Array.from(todos);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    reorderTodos(items);
   };
 
   const getOverdueStatus = (todo: any) => {
@@ -155,92 +166,116 @@ export default function TodoPage() {
         </form>
       </div>
 
-      <div className="space-y-3">
-        {todos.map((todo) => {
-          const overdueStatus = getOverdueStatus(todo);
-          
-          return (
-            <div
-              key={todo.id}
-              className={clsx(
-                "cozy-card flex items-center justify-between px-4 py-3 transition-all hover:bg-[var(--color-bg)]",
-                todo.completed && "opacity-60"
-              )}
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable droppableId="todos">
+          {(provided) => (
+            <div 
+              {...provided.droppableProps} 
+              ref={provided.innerRef}
+              className="space-y-3"
             >
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={() => handleToggleTodo(todo.id, !todo.completed, todo.habitId)}
-                  className={clsx(
-                    "transition-colors hover:scale-110",
-                    todo.completed ? "text-[var(--color-secondary)]" : "text-[var(--color-text)]"
-                  )}
-                >
-                  {todo.completed ? (
-                    <CheckCircle className="h-6 w-6 fill-current" />
-                  ) : (
-                    <Circle className="h-6 w-6" />
-                  )}
-                </button>
-                <div className="flex flex-col">
-                  <span
-                    className={clsx(
-                      "text-lg font-medium transition-all",
-                      todo.completed && "line-through"
+              {todos.map((todo, index) => {
+                const overdueStatus = getOverdueStatus(todo);
+                
+                return (
+                  <Draggable key={todo.id} draggableId={todo.id} index={index}>
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        className={clsx(
+                          "cozy-card flex items-center justify-between px-4 py-3 transition-all hover:bg-[var(--color-bg)]",
+                          todo.completed && "opacity-60"
+                        )}
+                        style={{
+                          ...provided.draggableProps.style,
+                          backgroundColor: "var(--color-card)",
+                        }}
+                      >
+                        <div className="flex items-center gap-4">
+                          <div {...provided.dragHandleProps} className="cursor-grab opacity-50 hover:opacity-100">
+                            <GripVertical className="h-5 w-5" />
+                          </div>
+                          <button
+                            onClick={() => handleToggleTodo(todo.id, !todo.completed, todo.habitId)}
+                            className={clsx(
+                              "transition-colors hover:scale-110",
+                              todo.completed ? "text-[var(--color-secondary)]" : "text-[var(--color-text)]"
+                            )}
+                          >
+                            {todo.completed ? (
+                              <CheckCircle className="h-6 w-6 fill-current" />
+                            ) : (
+                              <Circle className="h-6 w-6" />
+                            )}
+                          </button>
+                          <div className="flex flex-col">
+                            <span
+                              className={clsx(
+                                "text-lg font-medium transition-all",
+                                todo.completed && "line-through"
+                              )}
+                              style={{ color: "var(--color-text)" }}
+                            >
+                              {todo.text}
+                            </span>
+                            {overdueStatus && (
+                              <span className="text-xs font-bold text-[var(--color-danger)]">
+                                {overdueStatus.text}
+                              </span>
+                            )}
+                            {!overdueStatus && todo.dueDate && (
+                              <span className="text-xs opacity-50" style={{ color: "var(--color-text)" }}>
+                                Due: {new Date(todo.dueDate).toLocaleDateString()}
+                              </span>
+                            )}
+                          </div>
+                          {todo.habitId && (
+                             <Flame className="h-4 w-4 text-[var(--color-danger)]" title="Habit Task" />
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          {todo.priority === "high" && (
+                            <Star className="h-5 w-5 fill-[var(--color-accent)] text-[var(--color-accent)]" />
+                          )}
+                          <button
+                            onClick={() => {
+                              setCurrentTask(todo.text);
+                              router.push("/focus");
+                            }}
+                            className="rounded-full p-2 text-[var(--color-primary)] hover:bg-[var(--color-bg)] transition-colors"
+                            title="Focus on this task"
+                          >
+                            <Play className="h-4 w-4 fill-current" />
+                          </button>
+                          <button
+                            onClick={() => deleteTodo(todo.id)}
+                            className="text-[var(--color-danger)] opacity-100 transition-opacity hover:scale-110"
+                            title="Delete task"
+                          >
+                            <Trash2 className="h-5 w-5" />
+                          </button>
+                        </div>
+                      </div>
                     )}
-                    style={{ color: "var(--color-text)" }}
-                  >
-                    {todo.text}
-                  </span>
-                  {overdueStatus && (
-                    <span className="text-xs font-bold text-[var(--color-danger)]">
-                      {overdueStatus.text}
-                    </span>
-                  )}
-                  {!overdueStatus && todo.dueDate && (
-                    <span className="text-xs opacity-50" style={{ color: "var(--color-text)" }}>
-                      Due: {new Date(todo.dueDate).toLocaleDateString()}
-                    </span>
-                  )}
-                </div>
-                {todo.habitId && (
-                   <Flame className="h-4 w-4 text-[var(--color-danger)]" title="Habit Task" />
-                )}
-              </div>
-              <div className="flex items-center gap-2">
-                {todo.priority === "high" && (
-                  <Star className="h-5 w-5 fill-[var(--color-accent)] text-[var(--color-accent)]" />
-                )}
-                <button
-                  onClick={() => {
-                    setCurrentTask(todo.text);
-                    router.push("/focus");
-                  }}
-                  className="rounded-full p-2 text-[var(--color-primary)] hover:bg-[var(--color-bg)] transition-colors"
-                  title="Focus on this task"
-                >
-                  <Play className="h-4 w-4 fill-current" />
-                </button>
-                <button
-                  onClick={() => deleteTodo(todo.id)}
-                  className="text-[var(--color-danger)] opacity-100 transition-opacity hover:scale-110"
-                  title="Delete task"
-                >
-                  <Trash2 className="h-5 w-5" />
-                </button>
-              </div>
+                  </Draggable>
+                );
+              })}
+              {provided.placeholder}
             </div>
-          );
-        })}
-        {todos.length === 0 && (
-          <div className="flex flex-col items-center justify-center py-12 text-center opacity-50">
-            <CheckCircle className="mb-4 h-16 w-16 text-[var(--color-secondary)]" />
-            <p className="text-xl font-bold" style={{ color: "var(--color-text)" }}>
-              All caught up!
-            </p>
-            <p style={{ color: "var(--color-text)" }}>Enjoy your day.</p>
-          </div>
-        )}
-      </div>
+          )}
+        </Droppable>
+      </DragDropContext>
+      
+      {todos.length === 0 && (
+        <div className="flex flex-col items-center justify-center py-12 text-center opacity-50">
+          <CheckCircle className="mb-4 h-16 w-16 text-[var(--color-secondary)]" />
+          <p className="text-xl font-bold" style={{ color: "var(--color-text)" }}>
+            All caught up!
+          </p>
+          <p style={{ color: "var(--color-text)" }}>Enjoy your day.</p>
+        </div>
+      )}
     </div>
   );
 }
