@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Vibrant Day Colors - Light */
+  --color-primary: #0077b6;
+  /* Ocean Blue */
+  --color-secondary: #48cae4;
+  /* Cyan */
+  --color-accent: #ffb703;
+  /* Golden Yellow */
+  --color-danger: #fb8500;
+  /* Orange */
+
+  --color-bg-start: #4facfe;
+  /* Vibrant Blue Sky */
+  --color-bg-end: #00f2fe;
+  /* Bright Cyan */
+
+  /* Increased transparency for glassmorphism */
+  --color-card: rgba(255, 255, 255, 0.75);
+  --color-text: #023047;
+  /* Deep Blue Text */
+
+  --border-radius: 1.5rem;
+  --border-width: 2px;
+}
+
+.dark {
+  /* Refined Cozy Colors - Dark (Purplish Night) */
+  --color-primary: #bd93f9;
+  /* Bright Purple */
+  --color-secondary: #ff79c6;
+  /* Pink */
+  --color-accent: #f1fa8c;
+  /* Soft Yellow */
+  --color-danger: #ff5555;
+  /* Soft Red */
+
+  /* Purplish Hue Background */
+  --color-bg-start: #282a36;
+  /* Dark Purple-Grey */
+  --color-bg-end: #191a21;
+  /* Darker Purple-Black */
+
+  /* Increased transparency for glassmorphism */
+  --color-card: rgba(40, 42, 54, 0.6);
+  --color-text: #f8f8f2;
+  /* Off-White */
+}
+
+body {
+  color: var(--color-text);
+  /* Background is handled by GlobalBackground component now */
+  font-family: 'Fredoka', sans-serif;
+  transition: color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Cozy Card Style */
+.cozy-card {
+  background-color: var(--color-card);
+  backdrop-filter: blur(8px);
+  /* Reduced blur slightly for better background visibility */
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--color-text);
+  box-shadow: 4px 4px 0px var(--color-text);
+  transition: all 0.2s ease;
+}
+
+.cozy-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-text);
+}
+
+.cozy-btn {
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--color-text);
+  box-shadow: 2px 2px 0px var(--color-text);
+  transition: all 0.1s ease;
+  font-weight: bold;
+}
+
+.cozy-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--color-text);
+}
+
+.cozy-input {
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--color-text);
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+  color: var(--color-text);
+  background-color: var(--color-card);
+  backdrop-filter: blur(4px);
+}
+
+.cozy-input:focus {
+  box-shadow: 4px 4px 0px var(--color-primary);
+}
