@@ -223,7 +223,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$GlobalB
 ;
 ;
 const metadata = {
-    title: "Flow - Productivity App",
+    title: "Krsna - Productivity App",
     description: "A comprehensive productivity system"
 };
 function RootLayout({ children }) {

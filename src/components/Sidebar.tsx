@@ -18,6 +18,7 @@ import {
   Upload,
   X,
   Camera,
+  Feather,
 } from "lucide-react";
 import clsx from "clsx";
 import { useState, useRef } from "react";
@@ -110,15 +111,14 @@ export default function Sidebar() {
       </button>
 
       <div className="flex h-20 items-center justify-center border-b-2 border-[var(--color-text)]">
-        <h1
-          className={clsx(
-            "font-bold tracking-wider transition-all duration-300",
-            isCollapsed ? "text-xl" : "text-3xl"
+        <div className="flex items-center gap-2 transition-transform duration-300 hover:scale-110">
+          <Feather className={clsx("text-[var(--color-primary)]", isCollapsed ? "h-8 w-8" : "h-8 w-8")} />
+          {!isCollapsed && (
+            <h1 className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] bg-clip-text text-3xl font-bold tracking-wider text-transparent">
+              Krsna
+            </h1>
           )}
-          style={{ color: "var(--color-primary)" }}
-        >
-          {isCollapsed ? "F" : "Flow"}
-        </h1>
+        </div>
       </div>
 
       <nav className="flex-1 overflow-y-auto py-6">

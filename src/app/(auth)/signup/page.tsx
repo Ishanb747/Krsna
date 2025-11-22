@@ -33,7 +33,7 @@ export default function SignupPage() {
     <div className="flex min-h-screen items-center justify-center">
       <div className="cozy-card w-full max-w-md p-8">
         <h2 className="mb-6 text-center text-2xl font-bold text-gray-800">
-          Sign Up for Flow
+          Sign Up for Krsna
         </h2>
         {error && <p className="mb-4 text-red-500">{error}</p>}
         <form onSubmit={handleSignup}>

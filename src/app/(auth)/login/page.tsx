@@ -30,7 +30,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center">
       <div className="cozy-card w-full max-w-md p-8">
         <h2 className="mb-6 text-center text-2xl font-bold text-gray-800">
-          Login to Flow
+          Login to Krsna
         </h2>
         {error && <p className="mb-4 text-red-500">{error}</p>}
         <form onSubmit={handleLogin}>

@@ -9,7 +9,7 @@ import GlobalBackground from "@/components/GlobalBackground";
 const fredoka = Fredoka({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
-  title: "Flow - Productivity App",
+  title: "Krsna - Productivity App",
   description: "A comprehensive productivity system",
 };
 

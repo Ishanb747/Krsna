@@ -867,6 +867,10 @@ img, video {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
 .from-\[\#2d1b4e\] {
   --tw-gradient-from: #2d1b4e var(--tw-gradient-from-position);
   --tw-gradient-to: #2d1b4e00 var(--tw-gradient-to-position);
@@ -879,12 +883,27 @@ img, video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-\[var\(--color-primary\)\] {
+  --tw-gradient-from: var(--color-primary) var(--tw-gradient-from-position);
+  --tw-gradient-to: #fff0 var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .to-\[\#00f2fe\] {
   --tw-gradient-to: #00f2fe var(--tw-gradient-to-position);
 }
 
 .to-\[\#1a0b2e\] {
   --tw-gradient-to: #1a0b2e var(--tw-gradient-to-position);
+}
+
+.to-\[var\(--color-accent\)\] {
+  --tw-gradient-to: var(--color-accent) var(--tw-gradient-to-position);
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .fill-\[var\(--color-accent\)\] {
@@ -1107,6 +1126,10 @@ img, video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-transparent {
+  color: #0000;
 }
 
 .line-through {
