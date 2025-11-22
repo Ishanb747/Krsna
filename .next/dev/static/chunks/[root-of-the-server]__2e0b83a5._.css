@@ -1614,6 +1614,14 @@ body {
   opacity: .5;
 }
 
+.placeholder\:opacity-60::placeholder {
+  opacity: .6;
+}
+
+.placeholder\:opacity-70::placeholder {
+  opacity: .7;
+}
+
 .hover\:-translate-y-1:hover {
   --tw-translate-y: -.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));

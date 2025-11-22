@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useTodos } from "@/hooks/useTodos";
 import { useHabits } from "@/hooks/useHabits";
 import { useTimer } from "@/hooks/useTimer";
+import { useSound } from "@/contexts/SoundContext";
 import { useRouter } from "next/navigation";
 import { Trash2, CheckCircle, Circle, Plus, Star, Play, Flame, GripVertical } from "lucide-react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
@@ -13,6 +14,7 @@ export default function TodoPage() {
   const { todos, loading, error, addTodo, toggleTodo, deleteTodo, reorderTodos } = useTodos();
   const { habits, toggleHabit } = useHabits();
   const { setCurrentTask } = useTimer();
+  const { playSuccess, playDelete } = useSound();
   const router = useRouter();
   const [newTodo, setNewTodo] = useState("");
   const [dueDate, setDueDate] = useState<string>(new Date().toISOString().split('T')[0]);
@@ -197,7 +199,10 @@ export default function TodoPage() {
                             <GripVertical className="h-5 w-5" />
                           </div>
                           <button
-                            onClick={() => handleToggleTodo(todo.id, !todo.completed, todo.habitId)}
+                            onClick={() => {
+                              if (!todo.completed) playSuccess();
+                              handleToggleTodo(todo.id, !todo.completed, todo.habitId);
+                            }}
                             className={clsx(
                               "transition-colors hover:scale-110",
                               todo.completed ? "text-[var(--color-secondary)]" : "text-[var(--color-text)]"
@@ -249,7 +254,10 @@ export default function TodoPage() {
                             <Play className="h-4 w-4 fill-current" />
                           </button>
                           <button
-                            onClick={() => deleteTodo(todo.id)}
+                            onClick={() => {
+                              playDelete();
+                              deleteTodo(todo.id);
+                            }}
                             className="text-[var(--color-danger)] opacity-100 transition-opacity hover:scale-110"
                             title="Delete task"
                           >

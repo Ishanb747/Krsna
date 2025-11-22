@@ -19,11 +19,14 @@ import {
   X,
   Camera,
   Feather,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import clsx from "clsx";
 import { useState, useRef } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSound } from "@/contexts/SoundContext";
 import { storage } from "@/lib/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -41,6 +44,7 @@ export default function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { user, logout, updateUserProfile } = useAuth();
+  const { isMuted, toggleMute, playClick } = useSound();
   
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
@@ -130,6 +134,7 @@ export default function Sidebar() {
               <li key={item.name}>
                 <Link
                   href={item.href}
+                  onClick={() => playClick()}
                   className={clsx(
                     "flex items-center rounded-[var(--border-radius)] px-4 py-3 transition-all duration-200",
                     isActive
@@ -148,9 +153,12 @@ export default function Sidebar() {
 
       <div className="border-t-2 border-[var(--color-text)] p-4">
         <button
-          onClick={toggleTheme}
+          onClick={() => {
+            playClick();
+            toggleTheme();
+          }}
           className={clsx(
-            "mb-4 flex w-full items-center justify-center rounded-[var(--border-radius)] border-2 border-[var(--color-text)] bg-[var(--color-card)] py-2 shadow-[2px_2px_0px_var(--color-text)] transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
+            "mb-2 flex w-full items-center justify-center rounded-[var(--border-radius)] border-2 border-[var(--color-text)] bg-[var(--color-card)] py-2 shadow-[2px_2px_0px_var(--color-text)] transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
             isCollapsed ? "px-2" : "px-4"
           )}
         >
@@ -163,6 +171,29 @@ export default function Sidebar() {
             <>
               <Sun className="h-5 w-5 text-[var(--color-accent)]" />
               {!isCollapsed && <span className="ml-2 font-bold">Light Mode</span>}
+            </>
+          )}
+        </button>
+
+        <button
+          onClick={() => {
+            playClick();
+            toggleMute();
+          }}
+          className={clsx(
+            "mb-4 flex w-full items-center justify-center rounded-[var(--border-radius)] border-2 border-[var(--color-text)] bg-[var(--color-card)] py-2 shadow-[2px_2px_0px_var(--color-text)] transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
+            isCollapsed ? "px-2" : "px-4"
+          )}
+        >
+          {isMuted ? (
+            <>
+              <VolumeX className="h-5 w-5 text-[var(--color-danger)]" />
+              {!isCollapsed && <span className="ml-2 font-bold">Unmute</span>}
+            </>
+          ) : (
+            <>
+              <Volume2 className="h-5 w-5 text-[var(--color-primary)]" />
+              {!isCollapsed && <span className="ml-2 font-bold">Mute</span>}
             </>
           )}
         </button>

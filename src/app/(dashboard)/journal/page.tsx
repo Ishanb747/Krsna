@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useJournal } from "@/hooks/useJournal";
+import { useSound } from "@/contexts/SoundContext";
 import { Smile, Meh, Frown, Plus, Trash2, Search, Save, Tag, X } from "lucide-react";
 import { JournalEntry } from "@/types/journal";
 import clsx from "clsx";
@@ -20,6 +21,8 @@ export default function JournalPage() {
 
   // Search State
   const [searchQuery, setSearchQuery] = useState("");
+
+  const { playSuccess, playDelete } = useSound();
 
   // Derived State
   const filteredEntries = entries.filter(entry => 
@@ -65,6 +68,7 @@ export default function JournalPage() {
     } else {
       await addEntry(content, mood, title, tags);
     }
+    playSuccess();
     resetEditor();
   };
 
@@ -160,7 +164,7 @@ export default function JournalPage() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Entry Title..."
-            className="flex-1 bg-transparent text-2xl font-bold outline-none placeholder:opacity-30"
+            className="flex-1 bg-transparent text-2xl font-bold outline-none placeholder:opacity-60"
             style={{ color: "var(--color-text)" }}
           />
           <div className="flex items-center gap-2">
@@ -186,6 +190,7 @@ export default function JournalPage() {
               <button
                 onClick={() => {
                   if (confirm("Are you sure you want to delete this entry?")) {
+                    playDelete();
                     deleteEntry(selectedEntryId);
                     resetEditor();
                   }
@@ -213,7 +218,7 @@ export default function JournalPage() {
             onChange={(e) => setTagInput(e.target.value)}
             onKeyDown={handleAddTag}
             placeholder="Add tags..."
-            className="bg-transparent text-sm outline-none placeholder:opacity-50"
+            className="bg-transparent text-sm outline-none placeholder:opacity-70"
             style={{ color: "var(--color-text)" }}
           />
         </div>
@@ -223,7 +228,7 @@ export default function JournalPage() {
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Start writing..."
-          className="flex-1 resize-none bg-transparent text-lg leading-relaxed outline-none placeholder:opacity-30"
+          className="flex-1 resize-none bg-transparent text-lg leading-relaxed outline-none placeholder:opacity-60"
           style={{ color: "var(--color-text)" }}
         />
 

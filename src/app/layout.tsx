@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { TimerProvider } from "@/contexts/TimerContext";
+import { SoundProvider } from "@/contexts/SoundContext";
 import GlobalBackground from "@/components/GlobalBackground";
 
 const fredoka = Fredoka({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
@@ -23,10 +24,12 @@ export default function RootLayout({
       <body className={fredoka.className}>
         <ThemeProvider>
           <TimerProvider>
-            <AuthProvider>
-              <GlobalBackground />
-              {children}
-            </AuthProvider>
+            <SoundProvider>
+              <AuthProvider>
+                <GlobalBackground />
+                {children}
+              </AuthProvider>
+            </SoundProvider>
           </TimerProvider>
         </ThemeProvider>
       </body>
