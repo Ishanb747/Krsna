@@ -35,8 +35,18 @@ export default function DashboardPage() {
     });
   }, [habits, user, todos, addTodo]);
 
-  const completedTodos = todos.filter((t) => t.completed).length;
-  const activeTodos = todos.length - completedTodos;
+  const isToday = (timestamp: number | undefined) => {
+    if (!timestamp) return false;
+    const date = new Date(timestamp);
+    const today = new Date();
+    return date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear();
+  };
+
+  const todaysTodos = todos.filter(t => isToday(t.dueDate));
+  const completedTodos = todaysTodos.filter((t) => t.completed).length;
+  const activeTodos = todaysTodos.filter((t) => !t.completed).length;
   const totalHabitStreaks = habits.reduce((acc, curr) => acc + curr.streak, 0);
 
   return (
