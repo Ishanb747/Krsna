@@ -333,18 +333,29 @@ function useJournal() {
     }["useJournal.useEffect"], [
         user
     ]);
-    const addEntry = async (content, mood)=>{
+    const addEntry = async (content, mood, title, tags, images)=>{
         if (!user) return;
         try {
             await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], "journal"), {
                 content,
                 mood,
+                title: title || "",
+                tags: tags || [],
+                images: images || [],
                 createdAt: Date.now(),
                 userId: user.uid
             });
         } catch (error) {
             console.error("Error adding journal entry:", error);
             alert("Failed to save journal entry. Please check your connection.");
+        }
+    };
+    const updateEntry = async (id, data)=>{
+        try {
+            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updateDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["db"], "journal", id), data);
+        } catch (error) {
+            console.error("Error updating entry:", error);
+            alert("Failed to update entry.");
         }
     };
     const deleteEntry = async (id)=>{
@@ -359,6 +370,7 @@ function useJournal() {
         entries,
         loading,
         addEntry,
+        updateEntry,
         deleteEntry
     };
 }

@@ -7,6 +7,7 @@ import {
     query,
     where,
     onSnapshot,
+    updateDoc,
     deleteDoc,
     doc,
 } from "firebase/firestore";
@@ -52,18 +53,30 @@ export function useJournal() {
         return () => unsubscribe();
     }, [user]);
 
-    const addEntry = async (content: string, mood?: JournalEntry["mood"]) => {
+    const addEntry = async (content: string, mood?: JournalEntry["mood"], title?: string, tags?: string[], images?: string[]) => {
         if (!user) return;
         try {
             await addDoc(collection(db, "journal"), {
                 content,
                 mood,
+                title: title || "",
+                tags: tags || [],
+                images: images || [],
                 createdAt: Date.now(),
                 userId: user.uid,
             });
         } catch (error) {
             console.error("Error adding journal entry:", error);
             alert("Failed to save journal entry. Please check your connection.");
+        }
+    };
+
+    const updateEntry = async (id: string, data: Partial<JournalEntry>) => {
+        try {
+            await updateDoc(doc(db, "journal", id), data);
+        } catch (error) {
+            console.error("Error updating entry:", error);
+            alert("Failed to update entry.");
         }
     };
 
@@ -76,5 +89,5 @@ export function useJournal() {
         }
     };
 
-    return { entries, loading, addEntry, deleteEntry };
+    return { entries, loading, addEntry, updateEntry, deleteEntry };
 }

@@ -286,3 +286,20 @@ It can also happen if the client has a browser extension installed which messes 
 [00:32:16.657] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
 [00:32:17.339] Browser LOG     Journal Snapshot received. Docs: 1
 [00:44:55.991] Browser WARN    [2025-11-22T19:32:39.922Z]  @firebase/firestore: Firestore (12.6.0): WebChannelConnection RPC 'Listen' stream 0x2d83f336 transport errored. Name: undefined Message: undefined
+[00:48:20.606] Server  LOG      ✓ Compiled in 1927ms
+[00:48:24.116] Server  LOG      ✓ Compiled in 1556ms
+[00:49:14.149] Server  LOG      ✓ Compiled in 5.5s
+[00:49:19.160] Browser ERROR   uncaughtError: ReferenceError: useEffect is not defined
+[00:49:24.170] Server  LOG      ✓ Compiled in 592ms
+[00:49:24.212] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:49:28.024] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[00:49:28.190] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:49:28.190] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:49:28.190] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:49:28.190] Browser LOG     Journal Snapshot received. Docs: 1
+[00:49:31.166] Browser LOG     Firebase Config Project ID: krsna-151ef
+[00:49:31.167] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:49:31.167] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:49:31.167] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:49:32.162] Browser LOG     Journal Snapshot received. Docs: 1
+[00:52:46.583] Browser LOG     Journal Snapshot received. Docs: 0

@@ -4,5 +4,7 @@ export interface JournalEntry {
     mood?: "happy" | "neutral" | "sad" | "stressed" | "energetic";
     createdAt: number;
     userId: string;
+    title?: string;
     tags?: string[];
+    images?: string[];
 }
