@@ -1,44 +1,30 @@
-[00:00:04.975] Server  LOG      ✓ Ready in 3.3s
-[00:00:08.355] Server  LOG      ○ Compiling / ...
-[00:00:24.100] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:00:25.811] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:00:28.389] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:00:52.924] Server  LOG      ○ Compiling /settings ...
-[00:02:25.212] Server  LOG      ✓ Compiled in 1005ms
-[00:03:00.277] Server  LOG      ○ Compiling /todo ...
-[00:04:58.427] Server  LOG      ✓ Compiled in 4.2s
-[00:05:02.560] Server  LOG      ✓ Compiled in 836ms
-[00:06:19.317] Server  LOG      ✓ Compiled in 759ms
-[00:06:19.790] Browser ERROR   ./src/components/GlobalBackground.tsx:471:19
+[00:00:03.541] Server  LOG      ✓ Ready in 2.6s
+[00:00:06.722] Server  LOG      ○ Compiling / ...
+[00:00:24.863] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[00:00:28.225] Browser LOG     Firebase Config Project ID: krsna-151ef
+[00:00:28.974] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:00:41.326] Server  LOG      ○ Compiling /todo ...
+[00:02:39.355] Server  LOG      ✓ Compiled in 1822ms
+[00:02:39.525] Browser ERROR   ./src/components/Sidebar.tsx:139:25
 Parsing ecmascript source code failed
-  469 |   );
-  470 | } 
-> 471 |            style={{ 
-      |                   ^
-  472 |              clipPath: "polygon(0% 100%, 10% 90%, 15% 95%, 20% 85%, 25% 90%, 30% 80%, 40% 95%, 50% 85%, 60% 90%, 70% 80%, 80% 95%, 90% 85%, 100% 100%)",
-  473 |            }} 
-  474 |       />
+  137 |                   href={item.href}
+  138 |                   onClick={() => playClick()}
+> 139 |                     clsx(
+      |                         ^
+  140 |                       "flex items-center rounded-[var(--border-radius)] transition-all duration-200",
+  141 |                       isCollapsed ? "px-2 py-3" : "px-4 py-3",
+  142 |                     isActive
 
-Unexpected token `{`. Expected identifier, string literal, numeric literal or [ for the computed key
+Expected '</', got '('
 
-Import trace:
-  Server Component:
-    ./src/components/GlobalBackground.tsx
-    ./src/app/layout.tsx
-[00:06:46.471] Server  LOG      ✓ Compiled in 270ms
-[00:06:46.797] Browser ERROR   ./src/components/GlobalBackground.tsx:1281:2
-Parsing ecmascript source code failed
-  1279 |     </svg>
-  1280 |   );
-> 1281 | }
-       |  ^
-  1282 |
+Import traces:
+  Client Component Browser:
+    ./src/components/Sidebar.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
 
-Expected '}', got '<eof>'
-
-Import trace:
-  Server Component:
-    ./src/components/GlobalBackground.tsx
-    ./src/app/layout.tsx
-[00:07:14.273] Server  LOG      ✓ Compiled in 603ms
-[00:10:31.288] Server  LOG      ○ Compiling /focus ...
+  Client Component SSR:
+    ./src/components/Sidebar.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+[00:03:02.062] Server  LOG      ✓ Compiled in 597ms
