@@ -64,7 +64,7 @@ export default function DashboardContent({ onNavigateBack }: { onNavigateBack: (
         </div>
       </motion.div>
 
-      <h1 className="mb-6 text-4xl font-bold" style={{ color: "var(--color-text)" }}>
+      <h1 className="mb-6 text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: "var(--color-text)" }}>
         Welcome back, <span style={{ color: "var(--color-primary)" }}>{user?.email?.split("@")[0] || "User"}</span>!
       </h1>
       

@@ -88,7 +88,7 @@ export default function WelcomeView({ onNavigate }: { onNavigate: () => void }) 
         transition={{ duration: 0.8 }}
         className="relative z-10"
       >
-        <h1 className="text-7xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)]">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)]">
           {formattedDate}
         </h1>
         
@@ -128,7 +128,7 @@ export default function WelcomeView({ onNavigate }: { onNavigate: () => void }) 
         transition={{ delay: 0.5, duration: 1 }}
         className="max-w-2xl relative z-10"
       >
-        <p className="text-3xl italic font-light leading-relaxed" style={{ color: "var(--color-text)", opacity: 0.9 }}>
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic font-light leading-relaxed px-4" style={{ color: "var(--color-text)", opacity: 0.9 }}>
           "{quote}"
         </p>
       </motion.div>
@@ -248,7 +248,7 @@ export default function WelcomeView({ onNavigate }: { onNavigate: () => void }) 
         className="fixed bottom-8 right-8 flex items-center gap-2 cursor-pointer group"
         onClick={onNavigate}
       >
-        <span className="text-sm font-medium opacity-60 group-hover:opacity-100 transition-opacity" style={{ color: "var(--color-text)" }}>
+        <span className="hidden sm:inline text-sm font-medium opacity-60 group-hover:opacity-100 transition-opacity" style={{ color: "var(--color-text)" }}>
           Press Right Arrow to Dashboard
         </span>
         <div className="p-2 rounded-full bg-[var(--color-card)] shadow-lg group-hover:scale-110 transition-transform">

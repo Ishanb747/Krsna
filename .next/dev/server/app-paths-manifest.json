@@ -1,4 +1,5 @@
 {
+  "/(dashboard)/focus/page": "app/(dashboard)/focus/page.js",
   "/(dashboard)/page": "app/(dashboard)/page.js",
   "/(dashboard)/todo/page": "app/(dashboard)/todo/page.js"
 }

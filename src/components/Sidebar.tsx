@@ -21,9 +21,10 @@ import {
   Feather,
   Volume2,
   VolumeX,
+  Menu,
 } from "lucide-react";
 import clsx from "clsx";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSound } from "@/contexts/SoundContext";
@@ -43,6 +44,7 @@ export default function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { user, logout, updateUserProfile } = useAuth();
   const { isMuted, toggleMute, playClick } = useSound();
@@ -96,18 +98,56 @@ export default function Sidebar() {
     // For now, we'll keep it simple and just let the user click save
   };
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   return (
-    <div
-      className={clsx(
-        "relative flex h-screen flex-col border-r-2 border-gray-800 bg-[var(--color-card)] text-[var(--color-text)] transition-all duration-300 ease-in-out",
-        isCollapsed ? "w-24" : "w-64"
-      )}
-      style={{ borderColor: "var(--color-text)" }}
-    >
+    <>
+      {/* Mobile Hamburger Menu Button */}
       <button
-        onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute -right-3 top-9 flex h-6 w-6 items-center justify-center rounded-full border-2 border-[var(--color-text)] bg-[var(--color-card)] text-[var(--color-text)] shadow-sm hover:scale-110"
+        onClick={() => setIsMobileMenuOpen(true)}
+        className="fixed top-4 left-4 z-40 flex h-12 w-12 items-center justify-center rounded-[var(--border-radius)] border-2 border-[var(--color-text)] bg-[var(--color-card)] text-[var(--color-text)] shadow-[2px_2px_0px_var(--color-text)] transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none md:hidden"
+        aria-label="Open menu"
       >
+        <Menu className="h-6 w-6" />
+      </button>
+
+      {/* Mobile Backdrop */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <div
+        className={clsx(
+          "fixed md:relative z-50 flex h-screen flex-col border-r-2 border-gray-800 bg-[var(--color-card)] text-[var(--color-text)] transition-all duration-300 ease-in-out",
+          // Mobile: slide in from left
+          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0",
+          // Tablet and Desktop: normal behavior
+          isCollapsed ? "md:w-24" : "w-64"
+        )}
+        style={{ borderColor: "var(--color-text)" }}
+      >
+        {/* Mobile Close Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="absolute -right-12 top-4 flex h-10 w-10 items-center justify-center rounded-[var(--border-radius)] border-2 border-[var(--color-text)] bg-[var(--color-card)] text-[var(--color-text)] shadow-[2px_2px_0px_var(--color-text)] md:hidden"
+          aria-label="Close menu"
+        >
+          <X className="h-5 w-5" />
+        </button>
+
+        {/* Desktop Collapse Button */}
+        <button
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          className="absolute -right-3 top-9 hidden h-6 w-6 items-center justify-center rounded-full border-2 border-[var(--color-text)] bg-[var(--color-card)] text-[var(--color-text)] shadow-sm hover:scale-110 md:flex"
+          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+        >
         {isCollapsed ? (
           <ChevronRight className="h-4 w-4" />
         ) : (
@@ -313,6 +353,7 @@ export default function Sidebar() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }

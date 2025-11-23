@@ -1,35 +1,10 @@
-[00:00:03.541] Server  LOG      ✓ Ready in 2.6s
-[00:00:06.722] Server  LOG      ○ Compiling / ...
-[00:00:24.863] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:00:28.225] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:00:28.974] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:00:41.326] Server  LOG      ○ Compiling /todo ...
-[00:02:39.355] Server  LOG      ✓ Compiled in 1822ms
-[00:02:39.525] Browser ERROR   ./src/components/Sidebar.tsx:139:25
-Parsing ecmascript source code failed
-  137 |                   href={item.href}
-  138 |                   onClick={() => playClick()}
-> 139 |                     clsx(
-      |                         ^
-  140 |                       "flex items-center rounded-[var(--border-radius)] transition-all duration-200",
-  141 |                       isCollapsed ? "px-2 py-3" : "px-4 py-3",
-  142 |                     isActive
-
-Expected '</', got '('
-
-Import traces:
-  Client Component Browser:
-    ./src/components/Sidebar.tsx [Client Component Browser]
-    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
-    ./src/app/(dashboard)/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./src/components/Sidebar.tsx [Client Component SSR]
-    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
-    ./src/app/(dashboard)/layout.tsx [Server Component]
-[00:03:02.062] Server  LOG      ✓ Compiled in 597ms
-[00:08:47.988] Server  LOG      ✓ Compiled in 1098ms
-[00:09:44.181] Server  LOG      ✓ Compiled in 2.2s
-[00:10:00.994] Server  LOG      ✓ Compiled in 457ms
-[00:10:16.036] Server  LOG      ✓ Compiled in 450ms
-[00:10:25.905] Server  LOG      ✓ Compiled in 476ms
+[00:00:02.917] Server  LOG      ✓ Ready in 2.2s
+[00:00:09.501] Server  LOG      ○ Compiling / ...
+[00:00:28.595] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[00:00:30.280] Browser LOG     Firebase Config Project ID: krsna-151ef
+[00:00:32.568] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:00:51.093] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:00:51.093] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:00:52.215] Browser LOG     Journal Snapshot received. Docs: 0
+[00:01:00.401] Server  LOG      ○ Compiling /focus ...
+[00:01:13.133] Server  LOG      ○ Compiling /todo ...
