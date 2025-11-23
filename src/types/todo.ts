@@ -8,4 +8,11 @@ export interface Todo {
     dueDate?: number;
     habitId?: string;
     order?: number;
+    tags?: string[];
+    description?: string;
+    subtasks?: {
+        id: string;
+        text: string;
+        completed: boolean;
+    }[];
 }

@@ -38,3 +38,41 @@
 [00:24:19.020] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
 [00:24:19.020] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
 [00:24:19.020] Browser LOG     Journal Snapshot received. Docs: 0
+[00:25:16.197] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:25:16.197] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:25:16.197] Browser LOG     Journal Snapshot received. Docs: 0
+[00:26:22.568] Server  LOG      ✓ Compiled in 536ms
+[00:26:34.922] Server  LOG      ✓ Compiled in 37ms
+[00:27:21.242] Server  LOG      ✓ Compiled in 3.4s
+[00:27:34.706] Server  LOG      ✓ Compiled in 2.4s
+[00:28:30.673] Server  LOG      ✓ Compiled in 591ms
+[00:28:31.148] Browser ERROR   ./src/app/(dashboard)/todo/page.tsx:214:8
+Parsing ecmascript source code failed
+  212 |               {...provided.droppableProps} 
+  213 |       
+> 214 |       {todos.length === 0 && (
+      |        ^^^^^
+  215 |         <div className="flex flex-col items-center justify-center py-12 text-center opacity-50">
+  216 |           <CheckCircle className="mb-4 h-16 w-16 text-[var(--color-secondary)]" />
+  217 |           <p className="text-xl font-bold" style={{ color: "var(--color-text)" }}>
+
+Expected '</', got 'todos'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(dashboard)/todo/page.tsx [Client Component Browser]
+    ./src/app/(dashboard)/todo/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(dashboard)/todo/page.tsx [Client Component SSR]
+    ./src/app/(dashboard)/todo/page.tsx [Server Component]
+[00:29:16.047] Server  LOG      ✓ Compiled in 2.8s
+[00:30:06.756] Server  LOG      ✓ Compiled in 1754ms
+[00:30:19.152] Server  LOG      ✓ Compiled in 1686ms
+[00:30:40.465] Server  LOG      ✓ Compiled in 636ms
+[00:32:15.990] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:32:15.990] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:32:15.990] Browser LOG     Journal Snapshot received. Docs: 0
+[00:32:17.152] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:32:17.152] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:32:17.152] Browser LOG     Journal Snapshot received. Docs: 0
