@@ -14,7 +14,15 @@ export default function HabitsPage() {
     medium: "",
     hard: "",
   });
-  const [expandedHabitId, setExpandedHabitId] = useState<string | null>(null);
+  const [expandedHabitIds, setExpandedHabitIds] = useState<string[]>([]);
+
+  const toggleHabitExpansion = (habitId: string) => {
+    setExpandedHabitIds(prev => 
+      prev.includes(habitId) 
+        ? prev.filter(id => id !== habitId)
+        : [...prev, habitId]
+    );
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -121,32 +129,34 @@ export default function HabitsPage() {
         </div>
       )}
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 items-start">
         {habits.map((habit) => {
           const today = new Date();
           today.setHours(0, 0, 0, 0);
           const todayTimestamp = today.getTime();
           const isCompletedToday = habit.completedDates.includes(todayTimestamp);
-          const isExpanded = expandedHabitId === habit.id;
+          const isExpanded = expandedHabitIds.includes(habit.id);
 
           return (
             <div
               key={habit.id}
               className={clsx(
-                "cozy-card flex flex-col justify-between p-6 transition-all",
+                "cozy-card group flex flex-col justify-between p-6 transition-all",
                 isCompletedToday && "bg-[var(--color-bg)]"
               )}
             >
               <div 
                 className="cursor-pointer"
-                onClick={() => setExpandedHabitId(isExpanded ? null : habit.id)}
+                onClick={() => toggleHabitExpansion(habit.id)}
               >
                 <div className="mb-2 flex items-start justify-between">
                   <h3 className="text-xl font-bold" style={{ color: "var(--color-text)" }}>{habit.name}</h3>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      deleteHabit(habit.id);
+                      if (window.confirm("Are you sure you want to delete this habit?")) {
+                        deleteHabit(habit.id);
+                      }
                     }}
                     className="text-[var(--color-text)] opacity-0 transition-opacity hover:text-[var(--color-danger)] group-hover:opacity-100"
                   >

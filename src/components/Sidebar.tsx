@@ -36,6 +36,7 @@ const navItems = [
   { name: "Focus", href: "/focus", icon: Clock },
   { name: "Journal", href: "/journal", icon: Book },
   { name: "Habits", href: "/habits", icon: Flame },
+  { name: "Settings", href: "/settings", icon: Settings },
 ];
 
 export default function Sidebar() {
