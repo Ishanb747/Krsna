@@ -229,3 +229,12 @@ Import traces:
 [01:25:15.389] Server  LOG      ✓ Compiled in 799ms
 [01:37:30.886] Server  LOG      ✓ Compiled in 1247ms
 [01:40:09.831] Server  LOG      ✓ Compiled in 3.7s
+[01:50:09.266] Server  LOG      ✓ Compiled in 864ms
+[01:50:09.897] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./src/contexts/ThemeContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:50:15.252] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[01:50:17.230] Browser LOG     Firebase Config Project ID: krsna-151ef
+[01:50:19.139] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[01:50:42.170] Server  LOG      ✓ Compiled in 4.4s
+[01:52:06.358] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[01:52:06.368] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[01:52:07.868] Browser LOG     Journal Snapshot received. Docs: 0

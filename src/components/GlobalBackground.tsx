@@ -45,9 +45,6 @@ const MemoizedLightThemeBackground = memo(function LightThemeBackground({ varian
   if (variant === "autumn-path") {
     return <AutumnPathBg isActive={isActive} />;
   }
-  if (variant === "gita-wisdom") {
-    return <GitaWisdomBg isActive={isActive} />;
-  }
   // Default: morning-mist
   return <MorningMistBg isActive={isActive} />;
 });
@@ -67,12 +64,6 @@ const MemoizedDarkThemeBackground = memo(function DarkThemeBackground({ variant,
   }
   if (variant === "aurora-borealis") {
     return <AuroraBorealisBg isActive={isActive} />;
-  }
-  if (variant === "yamuna-night") {
-    return <YamunaNightBg isActive={isActive} />;
-  }
-  if (variant === "vishwaroopam") {
-    return <VishwaroopamBg isActive={isActive} />;
   }
   // Default: starry-night
   return <StarryNightBg isActive={isActive} />;
@@ -365,47 +356,141 @@ function StarryNightBg({ isActive }: { isActive: boolean }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
-      className="absolute inset-0 bg-gradient-to-b from-[#2d1b4e] to-[#1a0b2e]"
+      className="absolute inset-0 bg-[#1a1c2c] overflow-hidden"
     >
-      {/* Moon */}
-      <motion.div
-        className="absolute top-20 right-20 opacity-80"
-        animate={{ rotate: [0, 5, -5, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-          <path d="M70.7107 84.8528C80.4738 75.0897 80.4738 59.2606 70.7107 49.4975C60.9476 39.7344 45.1184 39.7344 35.3553 49.4975C32.2215 52.6313 30.1184 56.4556 29.0476 60.5C28.5 58.5 28.5 56.5 29.0476 54.5C30.1184 50.4556 32.2215 46.6313 35.3553 43.4975C45.1184 33.7344 60.9476 33.7344 70.7107 43.4975C80.4738 53.2606 80.4738 69.0897 70.7107 78.8528C67.5769 81.9866 63.7526 84.0897 59.7082 85.1605C63.7526 86.2313 67.5769 88.3344 70.7107 84.8528Z" fill="#F1FA8C" stroke="#F1FA8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </motion.div>
+      {/* Deep Blue/Black Base Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1026] via-[#2b32b2] to-[#1a1c2c] opacity-80" />
 
-      {/* Stars - consistent positioning, always same animation */}
-      {[...Array(30)].map((_, i) => {
-        const posX = (i * 37) % 100;
-        const posY = (i * 53) % 100;
-        const size = 10 + (i % 3) * 5;
-        return (
-          <motion.div
-            key={i}
-            className="absolute"
-            style={{
-              left: `${posX}%`,
-              top: `${posY}%`,
-            }}
+      {/* Van Gogh Swirls - Large */}
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={`swirl-lg-${i}`}
+          className="absolute opacity-30"
+          style={{
+            top: `${20 + i * 15}%`,
+            left: `${-20 + i * 25}%`,
+            width: '600px',
+            height: '300px',
+            background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 70%)',
+            filter: 'blur(40px)',
+            transform: `rotate(${i * 45}deg)`,
+          }}
+          animate={{
+            rotate: [i * 45, i * 45 + 360],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 40 + i * 10,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      ))}
+
+      {/* Stylized Wind/Swirls SVG */}
+      <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none">
+        <defs>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        {[...Array(8)].map((_, i) => (
+          <motion.path
+            key={`wind-${i}`}
+            d={`M${-100 + i * 200},${100 + i * 50} Q${300 + i * 100},${-100 + i * 100} ${800 + i * 100},${300 + i * 50} T${1500 + i * 100},${100 + i * 50}`}
+            fill="none"
+            stroke={i % 2 === 0 ? "#a8c0ff" : "#fbc2eb"}
+            strokeWidth="2"
+            strokeDasharray="20 40"
+            filter="url(#glow)"
             animate={{
-              opacity: [0.3, 0.8, 0.3],
-              scale: [0.8, 1.2, 0.8],
+              strokeDashoffset: [0, -1000],
             }}
             transition={{
-              duration: 2 + (i % 3),
+              duration: 20 + i * 5,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </svg>
+
+      {/* Crescent Moon - Glowing Orange/Yellow */}
+      <motion.div
+        className="absolute top-10 right-10 w-24 h-24 rounded-full bg-[#f1c40f]"
+        style={{
+          boxShadow: '0 0 60px 20px rgba(241, 196, 15, 0.4)',
+        }}
+        animate={{
+          scale: [1, 1.1, 1],
+          boxShadow: [
+            '0 0 60px 20px rgba(241, 196, 15, 0.4)',
+            '0 0 80px 30px rgba(241, 196, 15, 0.6)',
+            '0 0 60px 20px rgba(241, 196, 15, 0.4)',
+          ],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        {/* Moon Crater/Texture effect */}
+        <div className="absolute top-2 right-2 w-20 h-20 rounded-full bg-[#1a1c2c] opacity-20" style={{ transform: 'translate(20%, -20%)' }} />
+      </motion.div>
+
+      {/* Stars - Large, Haloed */}
+      {[...Array(12)].map((_, i) => {
+        const size = 4 + Math.random() * 6;
+        return (
+          <motion.div
+            key={`star-${i}`}
+            className="absolute rounded-full bg-[#fffacd]"
+            style={{
+              top: `${Math.random() * 60}%`,
+              left: `${Math.random() * 100}%`,
+              width: size,
+              height: size,
+              boxShadow: `0 0 ${size * 4}px ${size * 2}px rgba(255, 250, 205, 0.3)`,
+            }}
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{
+              duration: 2 + Math.random() * 3,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: (i % 10) * 0.2,
+              delay: Math.random() * 2,
             }}
-          >
-            <StarSVG size={size} />
-          </motion.div>
+          />
         );
       })}
+
+      {/* Cypress Tree Silhouette */}
+      <div className="absolute bottom-0 left-10 w-32 h-[60vh] bg-[#000000] opacity-90" 
+           style={{ 
+             clipPath: "polygon(40% 0%, 60% 10%, 80% 30%, 70% 50%, 90% 70%, 80% 100%, 20% 100%, 10% 70%, 30% 50%, 20% 30%, 40% 10%)",
+             filter: "blur(1px)"
+           }} 
+      />
+      <div className="absolute bottom-0 left-24 w-24 h-[40vh] bg-[#000000] opacity-80" 
+           style={{ 
+             clipPath: "polygon(50% 0%, 70% 20%, 60% 50%, 80% 80%, 70% 100%, 30% 100%, 20% 80%, 40% 50%, 30% 20%)",
+             filter: "blur(1px)"
+           }} 
+      />
+
+      {/* Village Silhouette (Distant) */}
+      <div className="absolute bottom-0 right-0 w-full h-32 bg-[#050510]" 
+           style={{ 
+             clipPath: "polygon(0% 100%, 10% 90%, 15% 95%, 20% 85%, 25% 90%, 30% 80%, 40% 95%, 50% 85%, 60% 90%, 70% 80%, 80% 95%, 90% 85%, 100% 100%)",
+           }} 
+      />
     </motion.div>
   );
 }

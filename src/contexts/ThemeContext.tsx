@@ -6,22 +6,17 @@ type Theme = "light" | "dark";
 type ThemeVariant = 
   | "morning-mist" | "sunny-meadow" | "cloudy-sky" 
   | "cherry-blossom" | "ocean-breeze" | "autumn-path"
-  | "gita-wisdom"
   | "starry-night" | "midnight-forest" | "nebula"
-  | "rainy-window" | "firefly-sanctuary" | "aurora-borealis"
-  | "yamuna-night"
-  | "vishwaroopam";
+  | "rainy-window" | "firefly-sanctuary" | "aurora-borealis";
 
 export const LIGHT_THEMES: ThemeVariant[] = [
   "morning-mist", "sunny-meadow", "cloudy-sky",
-  "cherry-blossom", "ocean-breeze", "autumn-path",
-  "gita-wisdom"
+  "cherry-blossom", "ocean-breeze", "autumn-path"
 ];
 
 export const DARK_THEMES: ThemeVariant[] = [
   "starry-night", "midnight-forest", "nebula",
-  "rainy-window", "firefly-sanctuary", "aurora-borealis",
-  "yamuna-night", "vishwaroopam"
+  "rainy-window", "firefly-sanctuary", "aurora-borealis"
 ];
 
 export const THEME_LABELS: Record<ThemeVariant, string> = {
@@ -31,15 +26,12 @@ export const THEME_LABELS: Record<ThemeVariant, string> = {
   "cherry-blossom": "Cherry Blossom",
   "ocean-breeze": "Ocean Breeze",
   "autumn-path": "Autumn Path",
-  "gita-wisdom": "Gita Wisdom",
   "starry-night": "Starry Night",
   "midnight-forest": "Midnight Forest",
   "nebula": "Nebula",
   "rainy-window": "Rainy Window",
   "firefly-sanctuary": "Firefly Sanctuary",
   "aurora-borealis": "Aurora Borealis",
-  "yamuna-night": "Yamuna Night",
-  "vishwaroopam": "Vishwaroopam",
 };
 
 interface ThemeContextType {

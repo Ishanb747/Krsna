@@ -553,6 +553,22 @@ img, video {
   top: 2rem;
 }
 
+.left-10 {
+  left: 2.5rem;
+}
+
+.left-24 {
+  left: 6rem;
+}
+
+.right-2 {
+  right: .5rem;
+}
+
+.top-2 {
+  top: .5rem;
+}
+
 .-z-50 {
   z-index: -50;
 }
@@ -806,6 +822,14 @@ img, video {
   height: 3.5rem;
 }
 
+.h-\[40vh\] {
+  height: 40vh;
+}
+
+.h-\[60vh\] {
+  height: 60vh;
+}
+
 .max-h-60 {
   max-height: 15rem;
 }
@@ -916,6 +940,10 @@ img, video {
 
 .w-80 {
   width: 20rem;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .min-w-\[200px\] {
@@ -1464,6 +1492,31 @@ img, video {
   background-color: currentColor;
 }
 
+.bg-\[\#000000\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#050510\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(5 5 16 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#1a1c2c\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(26 28 44 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#f1c40f\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 196 15 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#fffacd\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 250 205 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\'https\:\/\/www\.transparenttextures\.com\/patterns\/cubes\.png\'\)\] {
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
@@ -1616,6 +1669,12 @@ img, video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-\[\#0b1026\] {
+  --tw-gradient-from: #0b1026 var(--tw-gradient-from-position);
+  --tw-gradient-to: #0b102600 var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .via-\[\#203a43\] {
   --tw-gradient-to: #203a4300 var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #203a43 var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1664,6 +1723,11 @@ img, video {
 .via-white {
   --tw-gradient-to: #fff0 var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #fff var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.via-\[\#2b32b2\] {
+  --tw-gradient-to: #2b32b200 var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #2b32b2 var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-\[\#000000\]\/60 {
@@ -1756,6 +1820,10 @@ img, video {
 
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+
+.to-\[\#1a1c2c\] {
+  --tw-gradient-to: #1a1c2c var(--tw-gradient-to-position);
 }
 
 .bg-cover {
