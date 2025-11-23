@@ -402,7 +402,7 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
     <SoundContext.Provider value={{ 
       isMuted, toggleMute, playClick, playSuccess, playDelete, playError,
       alarmSound, setAlarmSound, tickingSound, setTickingSound, volume, setVolume,
-      playAlarm, startAmbient, stopAmbient, playTicking: () => {} // Deprecated, handled internally
+      playAlarm, startAmbient, stopAmbient
     }}>
       {children}
     </SoundContext.Provider>

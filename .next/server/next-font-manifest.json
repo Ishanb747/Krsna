@@ -6,9 +6,6 @@
     "[project]/src/app/(auth)/signup/page": [
       "static/media/5d52bd6c4cb3f315-s.p.610fd2a3.woff2"
     ],
-    "[project]/src/app/(dashboard)/analytics/page": [
-      "static/media/5d52bd6c4cb3f315-s.p.610fd2a3.woff2"
-    ],
     "[project]/src/app/(dashboard)/focus/page": [
       "static/media/5d52bd6c4cb3f315-s.p.610fd2a3.woff2"
     ],
@@ -19,6 +16,9 @@
       "static/media/5d52bd6c4cb3f315-s.p.610fd2a3.woff2"
     ],
     "[project]/src/app/(dashboard)/page": [
+      "static/media/5d52bd6c4cb3f315-s.p.610fd2a3.woff2"
+    ],
+    "[project]/src/app/(dashboard)/settings/page": [
       "static/media/5d52bd6c4cb3f315-s.p.610fd2a3.woff2"
     ],
     "[project]/src/app/(dashboard)/todo/page": [

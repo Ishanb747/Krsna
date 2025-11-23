@@ -1,11 +1,11 @@
 {
   "/(auth)/login/page": "app/(auth)/login/page.js",
   "/(auth)/signup/page": "app/(auth)/signup/page.js",
-  "/(dashboard)/analytics/page": "app/(dashboard)/analytics/page.js",
   "/(dashboard)/focus/page": "app/(dashboard)/focus/page.js",
   "/(dashboard)/habits/page": "app/(dashboard)/habits/page.js",
   "/(dashboard)/journal/page": "app/(dashboard)/journal/page.js",
   "/(dashboard)/page": "app/(dashboard)/page.js",
+  "/(dashboard)/settings/page": "app/(dashboard)/settings/page.js",
   "/(dashboard)/todo/page": "app/(dashboard)/todo/page.js",
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js"

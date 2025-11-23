@@ -260,3 +260,7 @@ Import traces:
 [03:31:48.498] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
 [03:31:48.499] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
 [03:31:48.499] Browser LOG     Journal Snapshot received. Docs: 0
+[03:34:08.257] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:34:08.257] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:34:08.257] Browser LOG     Journal Snapshot received. Docs: 0
+[03:46:47.037] Server  LOG      ✓ Compiled in 4.2s
