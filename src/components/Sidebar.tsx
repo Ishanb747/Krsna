@@ -117,7 +117,7 @@ export default function Sidebar() {
 
       <div className="flex h-20 items-center justify-center border-b-2 border-[var(--color-text)]">
         <div className="flex items-center gap-2 transition-transform duration-300 hover:scale-110">
-          <Feather className={clsx("text-[var(--color-primary)]", isCollapsed ? "h-8 w-8" : "h-8 w-8")} />
+          <Feather className={clsx("text-[var(--color-primary)]", isCollapsed ? "h-10 w-10" : "h-8 w-8")} />
           {!isCollapsed && (
             <h1 className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] bg-clip-text text-3xl font-bold tracking-wider text-transparent">
               Krsna
@@ -143,7 +143,7 @@ export default function Sidebar() {
                       : "text-[var(--color-text)] hover:bg-[var(--color-secondary)] hover:text-white hover:shadow-[2px_2px_0px_var(--color-text)] hover:border-2 hover:border-[var(--color-text)] border-2 border-transparent"
                   )}
                 >
-                  <Icon className={clsx("h-6 w-6", isCollapsed ? "mx-auto" : "mr-3")} />
+                  <Icon className={clsx(isCollapsed ? "h-10 w-10 mx-auto" : "h-6 w-6 mr-3")} />
                   {!isCollapsed && <span className="font-bold">{item.name}</span>}
                 </Link>
               </li>
@@ -165,12 +165,12 @@ export default function Sidebar() {
         >
           {theme === "light" ? (
             <>
-              <Moon className="h-5 w-5 text-[var(--color-text)]" />
+              <Moon className={clsx("text-[var(--color-text)]", isCollapsed ? "h-6 w-6" : "h-5 w-5")} />
               {!isCollapsed && <span className="ml-2 font-bold">Dark Mode</span>}
             </>
           ) : (
             <>
-              <Sun className="h-5 w-5 text-[var(--color-accent)]" />
+              <Sun className={clsx("text-[var(--color-accent)]", isCollapsed ? "h-6 w-6" : "h-5 w-5")} />
               {!isCollapsed && <span className="ml-2 font-bold">Light Mode</span>}
             </>
           )}
@@ -188,12 +188,12 @@ export default function Sidebar() {
         >
           {isMuted ? (
             <>
-              <VolumeX className="h-5 w-5 text-[var(--color-danger)]" />
+              <VolumeX className={clsx("text-[var(--color-danger)]", isCollapsed ? "h-6 w-6" : "h-5 w-5")} />
               {!isCollapsed && <span className="ml-2 font-bold">Unmute</span>}
             </>
           ) : (
             <>
-              <Volume2 className="h-5 w-5 text-[var(--color-primary)]" />
+              <Volume2 className={clsx("text-[var(--color-primary)]", isCollapsed ? "h-6 w-6" : "h-5 w-5")} />
               {!isCollapsed && <span className="ml-2 font-bold">Mute</span>}
             </>
           )}

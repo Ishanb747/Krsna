@@ -1,266 +1,44 @@
-[00:00:02.878] Server  LOG      ✓ Ready in 2.1s
-[00:00:06.598] Server  LOG      ○ Compiling / ...
-[00:00:17.342] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:00:18.942] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:00:21.560] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:00:21.560] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:00:21.560] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:00:23.705] Browser LOG     Journal Snapshot received. Docs: 0
-[00:02:03.170] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:02:03.170] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:02:03.170] Browser LOG     Journal Snapshot received. Docs: 0
-[00:09:15.907] Server  LOG      ○ Compiling /todo ...
-[00:09:34.070] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:09:34.070] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:09:34.070] Browser LOG     Journal Snapshot received. Docs: 0
-[00:14:39.751] Server  LOG      ✓ Compiled in 1170ms
-[00:15:35.589] Server  LOG      ○ Compiling /journal ...
-[00:15:37.344] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:15:37.344] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:15:37.344] Browser LOG     Journal Snapshot received. Docs: 0
-[00:22:48.200] Browser WARN    [2025-11-23T08:32:58.303Z]  @firebase/firestore: Firestore (12.6.0): WebChannelConnection RPC 'Listen' stream 0x35f68f21 transport errored. Name: undefined Message: undefined
-[00:22:57.134] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:22:57.134] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:22:57.134] Browser LOG     Journal Snapshot received. Docs: 0
-[00:23:40.109] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:23:40.109] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:23:40.109] Browser LOG     Journal Snapshot received. Docs: 0
-[00:23:43.201] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:23:43.201] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:23:43.201] Browser LOG     Journal Snapshot received. Docs: 0
-[00:23:50.145] Server  LOG      ✓ Compiled in 4.9s
-[00:23:51.142] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:23:51.142] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:23:51.142] Browser LOG     Journal Snapshot received. Docs: 0
-[00:23:58.780] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:23:58.780] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:23:58.780] Browser LOG     Journal Snapshot received. Docs: 0
-[00:24:19.020] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:24:19.020] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:24:19.020] Browser LOG     Journal Snapshot received. Docs: 0
-[00:25:16.197] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:25:16.197] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:25:16.197] Browser LOG     Journal Snapshot received. Docs: 0
-[00:26:22.568] Server  LOG      ✓ Compiled in 536ms
-[00:26:34.922] Server  LOG      ✓ Compiled in 37ms
-[00:27:21.242] Server  LOG      ✓ Compiled in 3.4s
-[00:27:34.706] Server  LOG      ✓ Compiled in 2.4s
-[00:28:30.673] Server  LOG      ✓ Compiled in 591ms
-[00:28:31.148] Browser ERROR   ./src/app/(dashboard)/todo/page.tsx:214:8
+[00:00:04.975] Server  LOG      ✓ Ready in 3.3s
+[00:00:08.355] Server  LOG      ○ Compiling / ...
+[00:00:24.100] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[00:00:25.811] Browser LOG     Firebase Config Project ID: krsna-151ef
+[00:00:28.389] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:00:52.924] Server  LOG      ○ Compiling /settings ...
+[00:02:25.212] Server  LOG      ✓ Compiled in 1005ms
+[00:03:00.277] Server  LOG      ○ Compiling /todo ...
+[00:04:58.427] Server  LOG      ✓ Compiled in 4.2s
+[00:05:02.560] Server  LOG      ✓ Compiled in 836ms
+[00:06:19.317] Server  LOG      ✓ Compiled in 759ms
+[00:06:19.790] Browser ERROR   ./src/components/GlobalBackground.tsx:471:19
 Parsing ecmascript source code failed
-  212 |               {...provided.droppableProps} 
-  213 |       
-> 214 |       {todos.length === 0 && (
-      |        ^^^^^
-  215 |         <div className="flex flex-col items-center justify-center py-12 text-center opacity-50">
-  216 |           <CheckCircle className="mb-4 h-16 w-16 text-[var(--color-secondary)]" />
-  217 |           <p className="text-xl font-bold" style={{ color: "var(--color-text)" }}>
+  469 |   );
+  470 | } 
+> 471 |            style={{ 
+      |                   ^
+  472 |              clipPath: "polygon(0% 100%, 10% 90%, 15% 95%, 20% 85%, 25% 90%, 30% 80%, 40% 95%, 50% 85%, 60% 90%, 70% 80%, 80% 95%, 90% 85%, 100% 100%)",
+  473 |            }} 
+  474 |       />
 
-Expected '</', got 'todos'
+Unexpected token `{`. Expected identifier, string literal, numeric literal or [ for the computed key
 
-Import traces:
-  Client Component Browser:
-    ./src/app/(dashboard)/todo/page.tsx [Client Component Browser]
-    ./src/app/(dashboard)/todo/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./src/app/(dashboard)/todo/page.tsx [Client Component SSR]
-    ./src/app/(dashboard)/todo/page.tsx [Server Component]
-[00:29:16.047] Server  LOG      ✓ Compiled in 2.8s
-[00:30:06.756] Server  LOG      ✓ Compiled in 1754ms
-[00:30:19.152] Server  LOG      ✓ Compiled in 1686ms
-[00:30:40.465] Server  LOG      ✓ Compiled in 636ms
-[00:32:15.990] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:32:15.990] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:32:15.990] Browser LOG     Journal Snapshot received. Docs: 0
-[00:32:17.152] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:32:17.152] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:32:17.152] Browser LOG     Journal Snapshot received. Docs: 0
-[00:37:02.375] Server  LOG      ✓ Compiled in 2.3s
-[00:37:02.438] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./src/contexts/SoundContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:37:06.262] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:37:08.442] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:37:11.624] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:37:22.553] Server  LOG      ✓ Compiled in 1409ms
-[00:37:24.389] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:37:40.667] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./src/contexts/TimerContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:37:40.676] Server  LOG      ✓ Compiled in 1930ms
-[00:37:42.055] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:37:44.187] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:37:46.138] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:38:23.765] Server  LOG      ✓ Compiled in 1696ms
-[00:41:12.334] Server  LOG      ✓ Compiled in 976ms
-[00:41:39.879] Server  LOG      ✓ Compiled in 686ms
-[00:42:24.627] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:42:24.627] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:42:27.614] Browser LOG     Journal Snapshot received. Docs: 0
-[00:42:35.194] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:42:35.194] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:42:35.194] Browser LOG     Journal Snapshot received. Docs: 0
-[00:42:39.068] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:42:39.068] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:42:39.068] Browser LOG     Journal Snapshot received. Docs: 0
-[00:42:49.919] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:42:49.919] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:42:49.919] Browser LOG     Journal Snapshot received. Docs: 0
-[00:45:58.303] Server  LOG      ✓ Compiled in 1293ms
-[00:45:58.342] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./src/contexts/SoundContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:46:00.377] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:46:01.800] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:46:04.062] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:46:11.798] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./src/contexts/TimerContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:46:12.626] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:46:12.738] Server  LOG      ✓ Compiled in 81ms
-[00:46:14.256] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:46:14.256] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:46:37.984] Server  LOG      ✓ Compiled in 1096ms
-[00:50:30.591] Server  LOG      ✓ Compiled in 1547ms
-[00:50:47.544] Server  LOG      ✓ Compiled in 217ms
-[00:50:48.147] Browser ERROR   uncaughtError: ReferenceError: MusicPlayer is not defined
-[00:50:50.843] Server  LOG      ✓ Compiled in 1979ms
-[00:50:50.859] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:50:52.496] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:50:52.560] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:50:54.298] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:50:56.134] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:54:39.175] Server  LOG      ✓ Compiled in 1124ms
-[00:55:57.251] Server  LOG      ✓ Compiled in 713ms
-[00:56:17.370] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:56:17.371] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:56:20.788] Browser LOG     Journal Snapshot received. Docs: 0
-[00:56:32.070] Browser ERROR   uncaughtError: ReferenceError: loading is not defined
-[00:56:38.349] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:56:38.371] Server  LOG      ✓ Compiled in 733ms
-[00:56:40.104] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:56:40.363] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:56:40.365] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:56:40.365] Browser ERROR   uncaughtError: ReferenceError: loading is not defined
-[00:56:40.365] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:56:40.365] Browser ERROR   uncaughtError: ReferenceError: loading is not defined
-[00:56:42.962] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:56:46.164] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:56:46.164] Browser ERROR   uncaughtError: ReferenceError: loading is not defined
-[00:57:41.178] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:57:41.182] Server  LOG      ✓ Compiled in 977ms
-[00:57:42.408] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:57:43.782] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:57:44.527] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:58:02.290] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:58:02.290] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:58:02.843] Browser LOG     Journal Snapshot received. Docs: 0
-[00:58:04.805] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:58:04.806] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:58:04.806] Browser LOG     Journal Snapshot received. Docs: 0
-[00:59:45.812] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:59:45.812] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:59:45.812] Browser LOG     Journal Snapshot received. Docs: 0
-[01:00:03.764] Server  LOG      ✓ Compiled in 8.5s
-[01:00:12.237] Server  LOG      ✓ Compiled in 1182ms
-[01:00:27.212] Server  LOG      ✓ Compiled in 275ms
-[01:00:28.145] Browser ERROR   ./src/app/(dashboard)/focus/page.tsx:1:7
+Import trace:
+  Server Component:
+    ./src/components/GlobalBackground.tsx
+    ./src/app/layout.tsx
+[00:06:46.471] Server  LOG      ✓ Compiled in 270ms
+[00:06:46.797] Browser ERROR   ./src/components/GlobalBackground.tsx:1281:2
 Parsing ecmascript source code failed
-> 1 |       </h1>
-    |       ^
-  2 |       {currentTask && (
-  3 |         <p className="mb-8 text-xl font-medium text-[var(--color-primary)]">
-  4 |           Focusing on: {currentTask}
+  1279 |     </svg>
+  1280 |   );
+> 1281 | }
+       |  ^
+  1282 |
 
-Expression expected
+Expected '}', got '<eof>'
 
-Import traces:
-  Client Component Browser:
-    ./src/app/(dashboard)/focus/page.tsx [Client Component Browser]
-    ./src/app/(dashboard)/focus/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./src/app/(dashboard)/focus/page.tsx [Client Component SSR]
-    ./src/app/(dashboard)/focus/page.tsx [Server Component]
-[01:00:28.145] Browser ERROR   ./src/app/(dashboard)/focus/page.tsx:1:8
-Parsing ecmascript source code failed
-> 1 |       </h1>
-    |        ^^^^
-  2 |       {currentTask && (
-  3 |         <p className="mb-8 text-xl font-medium text-[var(--color-primary)]">
-  4 |           Focusing on: {currentTask}
-
-Unterminated regexp literal
-
-Import traces:
-  Client Component Browser:
-    ./src/app/(dashboard)/focus/page.tsx [Client Component Browser]
-    ./src/app/(dashboard)/focus/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./src/app/(dashboard)/focus/page.tsx [Client Component SSR]
-    ./src/app/(dashboard)/focus/page.tsx [Server Component]
-[01:01:14.306] Server  LOG      ✓ Compiled in 444ms
-[01:01:55.284] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:01:55.284] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:01:55.284] Browser LOG     Journal Snapshot received. Docs: 0
-[01:02:24.203] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:02:24.204] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:02:24.204] Browser LOG     Journal Snapshot received. Docs: 0
-[01:02:28.086] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:02:28.086] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:02:28.086] Browser LOG     Journal Snapshot received. Docs: 0
-[01:02:43.021] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:02:43.021] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:02:43.021] Browser LOG     Journal Snapshot received. Docs: 0
-[01:02:57.765] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:02:57.765] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:02:57.765] Browser LOG     Journal Snapshot received. Docs: 0
-[01:03:50.517] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:03:50.517] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:03:50.517] Browser LOG     Journal Snapshot received. Docs: 0
-[01:04:16.370] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:04:16.370] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:04:16.370] Browser LOG     Journal Snapshot received. Docs: 0
-[01:04:17.532] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:04:17.532] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:04:17.532] Browser LOG     Journal Snapshot received. Docs: 0
-[01:04:20.886] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:04:20.886] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:04:20.886] Browser LOG     Journal Snapshot received. Docs: 0
-[01:06:34.989] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:06:34.989] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:06:34.989] Browser LOG     Journal Snapshot received. Docs: 0
-[01:11:54.540] Server  LOG      ✓ Compiled in 920ms
-[01:22:21.728] Server  LOG      ✓ Compiled in 2.8s
-[01:25:15.389] Server  LOG      ✓ Compiled in 799ms
-[01:37:30.886] Server  LOG      ✓ Compiled in 1247ms
-[01:40:09.831] Server  LOG      ✓ Compiled in 3.7s
-[01:50:09.266] Server  LOG      ✓ Compiled in 864ms
-[01:50:09.897] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./src/contexts/ThemeContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[01:50:15.252] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[01:50:17.230] Browser LOG     Firebase Config Project ID: krsna-151ef
-[01:50:19.139] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:50:42.170] Server  LOG      ✓ Compiled in 4.4s
-[01:52:06.358] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:52:06.368] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[01:52:07.868] Browser LOG     Journal Snapshot received. Docs: 0
-[03:03:06.398] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[03:03:17.172] Browser LOG     Firebase Config Project ID: krsna-151ef
-[03:03:24.134] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:03:45.690] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:03:45.690] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:03:46.736] Browser LOG     Journal Snapshot received. Docs: 0
-[03:07:45.924] Server  LOG      ✓ Compiled in 2.8s
-[03:08:10.690] Server  LOG      ✓ Compiled in 2.9s
-[03:08:16.682] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[03:08:24.305] Browser LOG     Firebase Config Project ID: krsna-151ef
-[03:08:26.357] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:09:32.159] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:09:32.178] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:12:04.199] Server  LOG      ✓ Compiled in 1746ms
-[03:13:11.883] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:13:11.883] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:13:12.852] Browser LOG     Journal Snapshot received. Docs: 0
-[03:29:47.752] Server  LOG      ✓ Compiled in 4.4s
-[03:30:02.287] Server  LOG      ✓ Compiled in 1830ms
-[03:31:48.498] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:31:48.499] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:31:48.499] Browser LOG     Journal Snapshot received. Docs: 0
-[03:34:08.257] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:34:08.257] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[03:34:08.257] Browser LOG     Journal Snapshot received. Docs: 0
-[03:46:47.037] Server  LOG      ✓ Compiled in 4.2s
+Import trace:
+  Server Component:
+    ./src/components/GlobalBackground.tsx
+    ./src/app/layout.tsx
+[00:07:14.273] Server  LOG      ✓ Compiled in 603ms
+[00:10:31.288] Server  LOG      ○ Compiling /focus ...

@@ -358,111 +358,89 @@ function StarryNightBg({ isActive }: { isActive: boolean }) {
       transition={{ duration: 1 }}
       className="absolute inset-0 bg-[#1a1c2c] overflow-hidden"
     >
-      {/* Deep Blue/Black Base Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1026] via-[#2b32b2] to-[#1a1c2c] opacity-80" />
+      {/* Warm Deep Blue/Purple Base Gradient - Van Gogh inspired */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f] via-[#2d4a7c] to-[#3a5a8c] opacity-90" />
 
-      {/* Van Gogh Swirls - Large */}
-      {[...Array(5)].map((_, i) => (
+      {/* Subtle Swirls - Reduced from 5 to 3 */}
+      {[...Array(3)].map((_, i) => (
         <motion.div
-          key={`swirl-lg-${i}`}
-          className="absolute opacity-30"
+          key={`swirl-${i}`}
+          className="absolute opacity-20"
           style={{
-            top: `${20 + i * 15}%`,
-            left: `${-20 + i * 25}%`,
-            width: '600px',
-            height: '300px',
-            background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 70%)',
-            filter: 'blur(40px)',
-            transform: `rotate(${i * 45}deg)`,
+            top: `${15 + i * 25}%`,
+            left: `${10 + i * 30}%`,
+            width: '400px',
+            height: '200px',
+            background: 'radial-gradient(ellipse at center, rgba(255,223,128,0.15) 0%, transparent 70%)',
+            filter: 'blur(30px)',
+            borderRadius: '50%',
           }}
           animate={{
-            rotate: [i * 45, i * 45 + 360],
-            scale: [1, 1.2, 1],
+            scale: [1, 1.15, 1],
+            opacity: [0.15, 0.25, 0.15],
           }}
           transition={{
-            duration: 40 + i * 10,
+            duration: 25 + i * 10,
             repeat: Infinity,
-            ease: "linear",
+            ease: "easeInOut",
           }}
         />
       ))}
 
-      {/* Stylized Wind/Swirls SVG */}
-      <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none">
-        <defs>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        {[...Array(8)].map((_, i) => (
-          <motion.path
-            key={`wind-${i}`}
-            d={`M${-100 + i * 200},${100 + i * 50} Q${300 + i * 100},${-100 + i * 100} ${800 + i * 100},${300 + i * 50} T${1500 + i * 100},${100 + i * 50}`}
-            fill="none"
-            stroke={i % 2 === 0 ? "#a8c0ff" : "#fbc2eb"}
-            strokeWidth="2"
-            strokeDasharray="20 40"
-            filter="url(#glow)"
-            animate={{
-              strokeDashoffset: [0, -1000],
-            }}
-            transition={{
-              duration: 20 + i * 5,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </svg>
-
-      {/* Crescent Moon - Glowing Orange/Yellow */}
+      {/* Warm Glowing Moon */}
       <motion.div
-        className="absolute top-10 right-10 w-24 h-24 rounded-full bg-[#f1c40f]"
+        className="absolute top-12 right-16 w-20 h-20 rounded-full bg-[#ffd966]"
         style={{
-          boxShadow: '0 0 60px 20px rgba(241, 196, 15, 0.4)',
+          boxShadow: '0 0 50px 15px rgba(255, 217, 102, 0.4)',
         }}
         animate={{
-          scale: [1, 1.1, 1],
-          boxShadow: [
-            '0 0 60px 20px rgba(241, 196, 15, 0.4)',
-            '0 0 80px 30px rgba(241, 196, 15, 0.6)',
-            '0 0 60px 20px rgba(241, 196, 15, 0.4)',
-          ],
+          scale: [1, 1.08, 1],
         }}
         transition={{
-          duration: 4,
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-      >
-        {/* Moon Crater/Texture effect */}
-        <div className="absolute top-2 right-2 w-20 h-20 rounded-full bg-[#1a1c2c] opacity-20" style={{ transform: 'translate(20%, -20%)' }} />
-      </motion.div>
+      />
 
-      {/* Stars - Large, Haloed */}
-      {[...Array(12)].map((_, i) => {
-        const size = 4 + Math.random() * 6;
+      {/* Static Stars - No animation for performance */}
+      {[...Array(40)].map((_, i) => {
+        const size = 1 + Math.random() * 2.5;
         return (
-          <motion.div
+          <div
             key={`star-${i}`}
             className="absolute rounded-full bg-[#fffacd]"
+            style={{
+              top: `${Math.random() * 70}%`,
+              left: `${Math.random() * 100}%`,
+              width: size,
+              height: size,
+              opacity: 0.6 + Math.random() * 0.4,
+              boxShadow: `0 0 ${size * 2}px ${size}px rgba(255, 250, 205, 0.2)`,
+            }}
+          />
+        );
+      })}
+
+      {/* Twinkling Stars - Only a few animated */}
+      {[...Array(8)].map((_, i) => {
+        const size = 2 + Math.random() * 3;
+        return (
+          <motion.div
+            key={`twinkle-${i}`}
+            className="absolute rounded-full bg-[#fff]"
             style={{
               top: `${Math.random() * 60}%`,
               left: `${Math.random() * 100}%`,
               width: size,
               height: size,
-              boxShadow: `0 0 ${size * 4}px ${size * 2}px rgba(255, 250, 205, 0.3)`,
+              boxShadow: `0 0 ${size * 3}px ${size * 1.5}px rgba(255, 255, 255, 0.3)`,
             }}
             animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.7, 1, 0.7],
+              opacity: [0.5, 1, 0.5],
             }}
             transition={{
-              duration: 2 + Math.random() * 3,
+              duration: 2 + Math.random() * 2,
               repeat: Infinity,
               ease: "easeInOut",
               delay: Math.random() * 2,
@@ -471,29 +449,26 @@ function StarryNightBg({ isActive }: { isActive: boolean }) {
         );
       })}
 
-      {/* Cypress Tree Silhouette */}
-      <div className="absolute bottom-0 left-10 w-32 h-[60vh] bg-[#000000] opacity-90" 
+      {/* Cypress Tree Silhouette - Simplified */}
+      <div className="absolute bottom-0 left-10 w-28 h-[50vh] bg-[#0a0a0a] opacity-95" 
            style={{ 
-             clipPath: "polygon(40% 0%, 60% 10%, 80% 30%, 70% 50%, 90% 70%, 80% 100%, 20% 100%, 10% 70%, 30% 50%, 20% 30%, 40% 10%)",
-             filter: "blur(1px)"
-           }} 
-      />
-      <div className="absolute bottom-0 left-24 w-24 h-[40vh] bg-[#000000] opacity-80" 
-           style={{ 
-             clipPath: "polygon(50% 0%, 70% 20%, 60% 50%, 80% 80%, 70% 100%, 30% 100%, 20% 80%, 40% 50%, 30% 20%)",
-             filter: "blur(1px)"
+             clipPath: "polygon(45% 0%, 55% 5%, 70% 25%, 60% 50%, 75% 75%, 65% 100%, 35% 100%, 25% 75%, 40% 50%, 30% 25%, 45% 5%)",
            }} 
       />
 
-      {/* Village Silhouette (Distant) */}
-      <div className="absolute bottom-0 right-0 w-full h-32 bg-[#050510]" 
+      {/* Village Silhouette - Simplified */}
+      <div className="absolute bottom-0 right-0 w-full h-28 bg-[#0d0d1a] opacity-90" 
            style={{ 
-             clipPath: "polygon(0% 100%, 10% 90%, 15% 95%, 20% 85%, 25% 90%, 30% 80%, 40% 95%, 50% 85%, 60% 90%, 70% 80%, 80% 95%, 90% 85%, 100% 100%)",
+             clipPath: "polygon(0% 100%, 8% 85%, 15% 90%, 22% 75%, 30% 85%, 40% 70%, 50% 80%, 60% 65%, 70% 75%, 80% 60%, 90% 70%, 100% 100%)",
            }} 
       />
+
+      {/* Warm glow at horizon */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#4a5568] to-transparent opacity-30" />
     </motion.div>
   );
 }
+
 
 function MidnightForestBg({ isActive }: { isActive: boolean }) {
   return (
