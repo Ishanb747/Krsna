@@ -238,3 +238,25 @@ Import traces:
 [01:52:06.358] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
 [01:52:06.368] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
 [01:52:07.868] Browser LOG     Journal Snapshot received. Docs: 0
+[03:03:06.398] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[03:03:17.172] Browser LOG     Firebase Config Project ID: krsna-151ef
+[03:03:24.134] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:03:45.690] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:03:45.690] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:03:46.736] Browser LOG     Journal Snapshot received. Docs: 0
+[03:07:45.924] Server  LOG      ✓ Compiled in 2.8s
+[03:08:10.690] Server  LOG      ✓ Compiled in 2.9s
+[03:08:16.682] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[03:08:24.305] Browser LOG     Firebase Config Project ID: krsna-151ef
+[03:08:26.357] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:09:32.159] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:09:32.178] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:12:04.199] Server  LOG      ✓ Compiled in 1746ms
+[03:13:11.883] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:13:11.883] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:13:12.852] Browser LOG     Journal Snapshot received. Docs: 0
+[03:29:47.752] Server  LOG      ✓ Compiled in 4.4s
+[03:30:02.287] Server  LOG      ✓ Compiled in 1830ms
+[03:31:48.498] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:31:48.499] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:31:48.499] Browser LOG     Journal Snapshot received. Docs: 0
