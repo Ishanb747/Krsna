@@ -144,7 +144,7 @@ export default function Sidebar() {
                       : "text-[var(--color-text)] hover:bg-[var(--color-secondary)] hover:text-white hover:shadow-[2px_2px_0px_var(--color-text)] hover:border-2 hover:border-[var(--color-text)] border-2 border-transparent"
                   )}
                 >
-                  <Icon className={clsx(isCollapsed ? "h-16 w-16 mx-auto" : "h-6 w-6 mr-3")} />
+                  <Icon className={clsx(isCollapsed ? "h-7 w-7 mx-auto" : "h-6 w-6 mr-3")} />
                   {!isCollapsed && <span className="font-bold">{item.name}</span>}
                 </Link>
               </li>

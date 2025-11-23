@@ -216,7 +216,7 @@ function Sidebar() {
                                 className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("flex items-center rounded-[var(--border-radius)] transition-all duration-200", isCollapsed ? "px-2 py-3" : "px-4 py-3", isActive ? "bg-[var(--color-primary)] text-white shadow-[2px_2px_0px_var(--color-text)] border-2 border-[var(--color-text)]" : "text-[var(--color-text)] hover:bg-[var(--color-secondary)] hover:text-white hover:shadow-[2px_2px_0px_var(--color-text)] hover:border-2 hover:border-[var(--color-text)] border-2 border-transparent"),
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Icon, {
-                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])(isCollapsed ? "h-16 w-16 mx-auto" : "h-6 w-6 mr-3")
+                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])(isCollapsed ? "h-7 w-7 mx-auto" : "h-6 w-6 mr-3")
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Sidebar.tsx",
                                         lineNumber: 147,

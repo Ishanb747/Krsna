@@ -806,6 +806,14 @@ img, video {
   height: 100vh;
 }
 
+.h-9 {
+  height: 2.25rem;
+}
+
+.h-7 {
+  height: 1.75rem;
+}
+
 .max-h-\[calc\(100vh-120px\)\] {
   max-height: calc(100vh - 120px);
 }
@@ -928,6 +936,14 @@ img, video {
 
 .w-24 {
   width: 6rem;
+}
+
+.w-9 {
+  width: 2.25rem;
+}
+
+.w-7 {
+  width: 1.75rem;
 }
 
 .min-w-0 {
