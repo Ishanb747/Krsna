@@ -23,14 +23,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={fredoka.className}>
         <ThemeProvider>
-          <TimerProvider>
-            <SoundProvider>
+          <SoundProvider>
+            <TimerProvider>
               <AuthProvider>
                 <GlobalBackground />
                 {children}
               </AuthProvider>
-            </SoundProvider>
-          </TimerProvider>
+            </TimerProvider>
+          </SoundProvider>
         </ThemeProvider>
       </body>
     </html>

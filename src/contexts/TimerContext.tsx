@@ -2,6 +2,8 @@
 
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 
+import { useSound } from "./SoundContext";
+
 interface TimerContextType {
   timeLeft: number;
   isActive: boolean;
@@ -24,22 +26,36 @@ export function TimerProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<"focus" | "shortBreak" | "longBreak">("focus");
   const [currentTask, setCurrentTask] = useState<string | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const { playAlarm, startAmbient, stopAmbient } = useSound();
 
   useEffect(() => {
     if (isActive && timeLeft > 0) {
+      startAmbient();
       timerRef.current = setInterval(() => {
         setTimeLeft((prev) => prev - 1);
       }, 1000);
-    } else if (timeLeft === 0) {
-      setIsActive(false);
+    } else {
+      stopAmbient();
+      if (timeLeft === 0 && isActive) {
+        // Timer just finished
+        playAlarm();
+      }
       if (timerRef.current) clearInterval(timerRef.current);
-      // TODO: Play sound
+    }
+
+    // Special case: if timeLeft hits 0 inside the interval
+    if (timeLeft === 0 && isActive) {
+        setIsActive(false);
+        stopAmbient();
+        playAlarm();
+        if (timerRef.current) clearInterval(timerRef.current);
     }
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
+      stopAmbient();
     };
-  }, [isActive, timeLeft]);
+  }, [isActive, timeLeft, playAlarm, startAmbient, stopAmbient]);
 
   const startTimer = () => setIsActive(true);
   const pauseTimer = () => setIsActive(false);

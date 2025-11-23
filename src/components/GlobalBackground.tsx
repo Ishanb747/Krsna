@@ -3,7 +3,7 @@
 import { useTheme } from "@/contexts/ThemeContext";
 import { useTimer } from "@/hooks/useTimer";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 
 export default function GlobalBackground() {
   const { theme, themeVariant } = useTheme();
@@ -20,16 +20,16 @@ export default function GlobalBackground() {
     <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none">
       <AnimatePresence mode="wait">
         {theme === "dark" ? (
-          <DarkThemeBackground key={themeVariant} variant={themeVariant} isActive={isActive} />
+          <MemoizedDarkThemeBackground key={themeVariant} variant={themeVariant} isActive={isActive} />
         ) : (
-          <LightThemeBackground key={themeVariant} variant={themeVariant} isActive={isActive} />
+          <MemoizedLightThemeBackground key={themeVariant} variant={themeVariant} isActive={isActive} />
         )}
       </AnimatePresence>
     </div>
   );
 }
 
-function LightThemeBackground({ variant, isActive }: { variant: string; isActive: boolean }) {
+const MemoizedLightThemeBackground = memo(function LightThemeBackground({ variant, isActive }: { variant: string; isActive: boolean }) {
   if (variant === "sunny-meadow") {
     return <SunnyMeadowBg isActive={isActive} />;
   }
@@ -50,9 +50,9 @@ function LightThemeBackground({ variant, isActive }: { variant: string; isActive
   }
   // Default: morning-mist
   return <MorningMistBg isActive={isActive} />;
-}
+});
 
-function DarkThemeBackground({ variant, isActive }: { variant: string; isActive: boolean }) {
+const MemoizedDarkThemeBackground = memo(function DarkThemeBackground({ variant, isActive }: { variant: string; isActive: boolean }) {
   if (variant === "midnight-forest") {
     return <MidnightForestBg isActive={isActive} />;
   }
@@ -76,7 +76,7 @@ function DarkThemeBackground({ variant, isActive }: { variant: string; isActive:
   }
   // Default: starry-night
   return <StarryNightBg isActive={isActive} />;
-}
+});
 
 // ====== LIGHT THEMES ======
 
