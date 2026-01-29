@@ -4,7 +4,7 @@ import { db } from '@/lib/firebase';
 
 export async function PATCH(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         const userId = req.headers.get('x-user-id');
@@ -12,7 +12,7 @@ export async function PATCH(
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        const { id } = params;
+        const { id } = await params;
         const data = await req.json();
 
         // Prevent updating ID or userId
@@ -31,7 +31,7 @@ export async function PATCH(
 
 export async function DELETE(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         const userId = req.headers.get('x-user-id');
@@ -39,7 +39,7 @@ export async function DELETE(
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        const { id } = params;
+        const { id } = await params;
         const docRef = doc(db, 'todos', id);
         await deleteDoc(docRef);
 
