@@ -197,8 +197,8 @@ export default function AgentMode() {
               try { args = JSON.parse(toolCall.function.arguments); } catch(e) {}
 
               // Execute Tool
-              let result = null;
-              let displayText = null;
+              let result: any = null;
+              let displayText: string | null = null;
 
               // --- EXISTING TOOLS START ---
               if (functionName === 'getTodos') {
