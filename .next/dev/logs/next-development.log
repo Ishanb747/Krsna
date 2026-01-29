@@ -1,10 +1,1755 @@
-[00:00:02.917] Server  LOG      ✓ Ready in 2.2s
-[00:00:09.501] Server  LOG      ○ Compiling / ...
-[00:00:28.595] Server  LOG     Firebase Config Project ID: "krsna-151ef"
-[00:00:30.280] Browser LOG     Firebase Config Project ID: krsna-151ef
-[00:00:32.568] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:00:51.093] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:00:51.093] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
-[00:00:52.215] Browser LOG     Journal Snapshot received. Docs: 0
-[00:01:00.401] Server  LOG      ○ Compiling /focus ...
-[00:01:13.133] Server  LOG      ○ Compiling /todo ...
+[00:00:09.382] Server  LOG      ✓ Ready in 6.5s
+[00:23:01.323] Server  LOG      ○ Compiling / ...
+[00:23:25.800] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[00:23:30.487] Browser LOG     Firebase Config Project ID: krsna-151ef
+[00:23:34.127] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:23:41.220] Server  LOG      ○ Compiling /tracker ...
+[00:36:46.428] Server  LOG      ✓ Compiled in 1098ms
+[00:41:36.422] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[00:41:49.182] Browser LOG     Firebase Config Project ID: krsna-151ef
+[00:41:51.301] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:42:03.112] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[00:42:16.946] Browser LOG     Final formatted messages: [
+  {
+    "role": "assistant",
+    "content": "Hello! I'm your productivity assistant. How can I help you align your goals today?"
+  },
+  {
+    "role": "user",
+    "content": "I like fried chicken"
+  }
+]
+[00:42:17.246] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"I like fried chicken\"\n  }\n]"
+[00:42:17.250] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[00:42:19.509] Server  ERROR   Error fetching memories: FirebaseError: [code=failed-precondition]: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/krsna-151ef/firestore/indexes?create_composite=ClJwcm9qZWN0cy9rcnNuYS0xNTFlZi9kYXRhYmFzZXMvKGRlZmF1bHQpL2NvbGxlY3Rpb25Hcm91cHMvYWdlbnRfbWVtb3JpZXMvaW5kZXhlcy9fEAEaCgoGdXNlcklkEAEaDgoKaW1wb3J0YW5jZRACGgwKCF9fbmFtZV9fEAI
+[00:42:19.520] Server  LOG     Sending to OpenRouter with System Prompt Length: 1490
+[00:43:49.243] Server  WARN    [2026-01-29T15:46:05.428Z]  @firebase/firestore: "Firestore (12.6.0): GrpcConnection" "RPC 'Listen' stream 0x6e217f96 error. Code:" "1" "Message:" "1 CANCELLED: Disconnecting idle stream. Timed out waiting for new targets."
+[00:44:28.001] Browser LOG     Final formatted messages: [
+  {
+    "role": "assistant",
+    "content": "Hello! I'm your productivity assistant. How can I help you align your goals today?"
+  },
+  {
+    "role": "user",
+    "content": "I like fried chicken"
+  },
+  {
+    "role": "system",
+    "content": "[System: MEMORY_ACTION data was successfully displayed to the user]"
+  },
+  {
+    "role": "user",
+    "content": "I like kfc"
+  }
+]
+[00:44:28.140] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"I like fried chicken\"\n  },\n  {\n    \"role\": \"system\",\n    \"content\": \"[System: MEMORY_ACTION data was successfully displayed to the user]\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"I like kfc\"\n  }\n]"
+[00:44:28.146] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[00:44:30.019] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[00:44:31.691] Server  LOG     Sending to OpenRouter with System Prompt Length: 1596
+[00:44:51.763] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"I like fried chicken\"\n  },\n  {\n    \"role\": \"system\",\n    \"content\": \"[System: MEMORY_ACTION data was successfully displayed to the user]\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"I like kfc\"\n  },\n  {\n    \"role\": \"system\",\n    \"content\": \"[System: MEMORY_ACTION data was successfully displayed to the user]\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"so what do you think\"\n  }\n]"
+[00:44:51.764] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[00:44:51.828] Browser LOG     Final formatted messages: [
+  {
+    "role": "assistant",
+    "content": "Hello! I'm your productivity assistant. How can I help you align your goals today?"
+  },
+  {
+    "role": "user",
+    "content": "I like fried chicken"
+  },
+  {
+    "role": "system",
+    "content": "[System: MEMORY_ACTION data was successfully displayed to the user]"
+  },
+  {
+    "role": "user",
+    "content": "I like kfc"
+  },
+  {
+    "role": "system",
+    "content": "[System: MEMORY_ACTION data was successfully displayed to the user]"
+  },
+  {
+    "role": "user",
+    "content": "so what do you think"
+  }
+]
+[00:44:53.229] Server  LOG     Sending to OpenRouter with System Prompt Length: 1642
+[00:47:35.258] Server  LOG      ✓ Compiled in 1207ms
+[00:48:17.447] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"I like fried chicken\"\n  },\n  {\n    \"role\": \"system\",\n    \"content\": \"{\\\"message\\\":\\\"Memory stored successfully\\\"}\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"I like kfc\"\n  },\n  {\n    \"role\": \"system\",\n    \"content\": \"{\\\"message\\\":\\\"Memory stored successfully\\\"}\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"so what do you think\"\n  },\n  {\n    \"role\": \"system\",\n    \"content\": \"{\\\"message\\\":\\\"Memory stored successfully\\\"}\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"so what do you think?\"\n  }\n]"
+[00:48:17.450] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[00:48:17.509] Browser LOG     Sending message count: 8
+[00:48:18.953] Server  LOG     Sending to OpenRouter with System Prompt Length: 1688
+[00:50:00.945] Server  LOG      ✓ Compiled in 824ms
+[00:52:02.790] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[00:52:04.153] Browser LOG     Firebase Config Project ID: krsna-151ef
+[00:52:06.257] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[00:52:11.698] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  }\n]"
+[00:52:11.699] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[00:52:11.724] Browser LOG     Sending message count: 2
+[00:52:13.265] Server  LOG     Sending to OpenRouter with System Prompt Length: 1688
+[00:52:34.918] Server  LOG      ○ Compiling /settings ...
+[00:53:02.414] Server  LOG      ○ Compiling /todo ...
+[01:11:29.220] Browser WARN    [2026-01-29T16:13:45.090Z]  @firebase/firestore: Firestore (12.6.0): WebChannelConnection RPC 'Listen' stream 0x8d827aa2 transport errored. Name: undefined Message: undefined
+[01:29:59.501] Browser WARN    [2026-01-29T16:32:15.581Z]  @firebase/firestore: Firestore (12.6.0): WebChannelConnection RPC 'Listen' stream 0x8d827aa4 transport errored. Name: undefined Message: undefined
+[01:41:57.306] Browser WARN    [2026-01-29T16:44:12.493Z]  @firebase/firestore: Firestore (12.6.0): WebChannelConnection RPC 'Listen' stream 0x8d827aa6 transport errored. Name: undefined Message: undefined
+[01:42:56.160] Server  LOG      ✓ Compiled in 5.4s
+[01:44:26.240] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[01:44:28.926] Server  LOG      ✓ Compiled in 5.2s
+[01:44:31.203] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:00.184] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:02.561] Server  LOG      ○ Compiling /_error ...
+[01:45:13.182] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:15.178] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:17.760] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:17.963] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:17.972] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:17.985] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:18.054] Server  ERROR    ⨯ Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:45:18.761] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:18.831] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:18.846] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:18.848] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:18.858] Server  ERROR   Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:45:19.235] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:19.259] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:19.261] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:19.264] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:19.267] Server  ERROR   Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:20.187] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:45:57.793] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:57.834] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:57.838] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:57.855] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:57.860] Server  ERROR    ⨯ Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:45:58.099] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:58.125] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:58.135] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:58.143] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:58.153] Server  ERROR   Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:45:59.021] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:59.049] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:59.053] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:59.057] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:45:59.075] Server  ERROR   Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:00.174] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:57.606] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:57.697] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:57.702] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:57.708] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:57.714] Server  ERROR    ⨯ Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:46:57.913] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:57.936] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:57.940] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:57.944] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:57.946] Server  ERROR   Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:46:58.145] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:58.218] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:58.228] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:58.244] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:46:58.252] Server  ERROR   Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:46:59.172] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:59.173] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:59.173] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:59.173] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:59.173] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:59.173] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:59.173] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:59.173] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:59.173] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:59.173] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:46:59.173] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:57.548] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:57.643] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:57.656] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:57.674] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:57.693] Server  ERROR    ⨯ Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:47:57.907] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:58.007] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:58.045] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:58.055] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:58.058] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:58.061] Server  ERROR   Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:47:58.222] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:58.222] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:58.222] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:58.222] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:58.571] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:58.635] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:58.656] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:58.679] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:47:58.683] Server  ERROR   Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:47:58.806] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:58.806] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:58.806] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:58.913] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:58.913] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:47:58.913] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:48:57.830] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:57.894] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:57.908] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:57.913] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:57.918] Server  ERROR    ⨯ Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:48:58.149] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:58.178] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:58.183] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:58.189] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:58.190] Server  ERROR   Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:48:58.264] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:48:58.264] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:48:58.264] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:48:58.264] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:48:58.264] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:48:58.463] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\require-hook.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:58.512] Server  ERROR   C:\projects\krsna\node_modules\next\dist\compiled\next-server\pages-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:58.518] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\module.compiled.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:58.522] Server  ERROR   C:\projects\krsna\node_modules\next\dist\server\route-modules\pages\vendored\contexts\html-context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:48:58.523] Server  ERROR   Error: Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:
+  - react:      19.2.3
+  - react-dom:  19.2.0
+Learn more: https://react.dev/warnings/version-mismatch
+[01:48:59.179] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:48:59.179] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:48:59.179] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:48:59.179] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:48:59.179] Browser ERROR   ./src/components/AgentMode.tsx:100:17
+Parsing ecmascript source code failed
+   98 |       {/* Mobile Trigger Button */}
+   99 |       {/* ... rest of the existing UI ... */}
+> 100 |   useEffect(() => {
+      |                 ^
+  101 |     const handleKeyDown = (e: KeyboardEvent) => {
+  102 |       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+  103 |         e.preventDefault();
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/AgentMode.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Client Component Browser]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/AgentMode.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Client Component SSR]
+    ./src/components/GlobalBackground.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[01:49:25.591] Server  LOG      ✓ Compiled in 2.5s
+[01:49:30.832] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[01:52:14.150] Server  LOG      ○ Compiling /focus ...
+[01:58:21.331] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  }\n]"
+[01:58:21.349] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[01:58:21.547] Browser LOG     Sending message count: 4
+[01:58:25.161] Server  LOG     Sending to OpenRouter with System Prompt Length: 1688
+[01:58:33.518] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  }\n]"
+[01:58:33.519] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[01:58:33.526] Browser LOG     Sending message count: 6
+[01:58:34.832] Server  LOG     Sending to OpenRouter with System Prompt Length: 1688
+[01:59:08.715] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Got it! I’ve started a 3‑minute timer for you. Let me know when it’s up or if there’s anything else you’d like to dive into. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it on\"\n  }\n]"
+[01:59:08.716] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[01:59:08.769] Browser LOG     Sending message count: 8
+[01:59:10.193] Server  LOG     Sending to OpenRouter with System Prompt Length: 1688
+[02:02:18.537] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Got it! I’ve started a 3‑minute timer for you. Let me know when it’s up or if there’s anything else you’d like to dive into. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it on\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—I’ve got a 3‑minute timer running right now. It should finish shortly, and you’ll know when the time’s up. Let me know if you’d like to do anything else while it’s counting down!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer status rn\"\n  }\n]"
+[02:02:18.553] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[02:02:18.617] Browser LOG     Sending message count: 10
+[02:02:20.994] Server  LOG     Sending to OpenRouter with System Prompt Length: 1688
+[02:06:08.000] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Got it! I’ve started a 3‑minute timer for you. Let me know when it’s up or if there’s anything else you’d like to dive into. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it on\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—I’ve got a 3‑minute timer running right now. It should finish shortly, and you’ll know when the time’s up. Let me know if you’d like to do anything else while it’s counting down!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer status rn\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 3‑minute timer is still running—I’ll let you know the moment it finishes. Let me know if there’s anything else you’d like to tackle while we wait!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it done?\"\n  }\n]"
+[02:06:08.039] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[02:06:08.327] Browser LOG     Sending message count: 12
+[02:06:10.676] Server  LOG      ✓ Compiled in 688ms
+[02:06:11.703] Server  LOG     Sending to OpenRouter with System Prompt Length: 1688
+[02:07:08.798] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[02:08:13.871] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Got it! I’ve started a 3‑minute timer for you. Let me know when it’s up or if there’s anything else you’d like to dive into. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it on\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—I’ve got a 3‑minute timer running right now. It should finish shortly, and you’ll know when the time’s up. Let me know if you’d like to do anything else while it’s counting down!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer status rn\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 3‑minute timer is still running—I’ll let you know the moment it finishes. Let me know if there’s anything else you’d like to tackle while we wait!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 3‑minute timer has finished. What would you like to do next?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Hi focus 1 min in strict mode\"\n  }\n]"
+[02:08:13.877] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[02:08:13.919] Browser LOG     Sending message count: 14
+[02:08:15.776] Server  LOG     Sending to OpenRouter with System Prompt Length: 1688
+[02:10:41.984] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Got it! I’ve started a 3‑minute timer for you. Let me know when it’s up or if there’s anything else you’d like to dive into. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it on\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—I’ve got a 3‑minute timer running right now. It should finish shortly, and you’ll know when the time’s up. Let me know if you’d like to do anything else while it’s counting down!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer status rn\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 3‑minute timer is still running—I’ll let you know the moment it finishes. Let me know if there’s anything else you’d like to tackle while we wait!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 3‑minute timer has finished. What would you like to do next?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Hi focus 1 min in strict mode\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! I’ve just started a 1‑minute timer in strict focus mode. Let me know when it’s up or if there’s anything else you’d like to dive into while you’re in the zone. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"done?\"\n  }\n]"
+[02:10:41.992] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[02:10:42.041] Browser LOG     Sending message count: 16
+[02:10:43.721] Server  LOG     Sending to OpenRouter with System Prompt Length: 1688
+[02:12:43.657] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[02:12:48.228] Server  LOG      ✓ Compiled in 1469ms
+[02:12:56.323] Server  LOG      ✓ Compiled in 1079ms
+[02:16:30.752] Server  LOG      ✓ Compiled in 1675ms
+[02:16:49.452] Server  LOG      ✓ Compiled in 876ms
+[02:17:44.480] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[02:56:19.466] Server  WARN    [2026-01-29T17:58:35.351Z]  @firebase/firestore: "Firestore (12.6.0): GrpcConnection" "RPC 'Listen' stream 0x3143769f error. Code:" "1" "Message:" "1 CANCELLED: Disconnecting idle stream. Timed out waiting for new targets."
+[02:56:29.881] Server  WARN    [2026-01-29T17:58:45.946Z]  @firebase/firestore: "Firestore (12.6.0): GrpcConnection" "RPC 'Listen' stream 0x314376a0 error. Code:" "14" "Message:" "14 UNAVAILABLE: No connection established. Last error: connect EACCES 142.251.45.138:443 (2026-01-29T17:58:45.770Z)"
+[02:56:30.111] Server  WARN    [2026-01-29T17:58:46.285Z]  @firebase/firestore: "Firestore (12.6.0): GrpcConnection" "RPC 'Listen' stream 0x314376a1 error. Code:" "14" "Message:" "14 UNAVAILABLE: No connection established. Last error: connect EACCES 142.251.45.138:443 (2026-01-29T17:58:45.770Z)"
+[02:56:32.040] Server  WARN    [2026-01-29T17:58:48.227Z]  @firebase/firestore: "Firestore (12.6.0): GrpcConnection" "RPC 'Listen' stream 0x314376a2 error. Code:" "14" "Message:" "14 UNAVAILABLE: No connection established. Last error: connect EACCES 142.251.45.138:443 (2026-01-29T17:58:45.770Z)"
+[02:56:45.064] Server  WARN    [2026-01-29T17:59:01.254Z]  @firebase/firestore: "Firestore (12.6.0): GrpcConnection" "RPC 'Listen' stream 0x314376a3 error. Code:" "14" "Message:" "14 UNAVAILABLE: No connection established. Last error: connect EACCES 142.251.45.138:443 (2026-01-29T17:58:45.770Z)"
+[02:57:07.712] Browser ERROR   You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.
+[02:57:07.713] Browser ERROR   You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.
+[02:59:47.174] Browser LOG     Sending message count: 18
+[02:59:59.408] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[02:59:59.994] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Got it! I’ve started a 3‑minute timer for you. Let me know when it’s up or if there’s anything else you’d like to dive into. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it on\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—I’ve got a 3‑minute timer running right now. It should finish shortly, and you’ll know when the time’s up. Let me know if you’d like to do anything else while it’s counting down!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer status rn\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 3‑minute timer is still running—I’ll let you know the moment it finishes. Let me know if there’s anything else you’d like to tackle while we wait!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 3‑minute timer has finished. What would you like to do next?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Hi focus 1 min in strict mode\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! I’ve just started a 1‑minute timer in strict focus mode. Let me know when it’s up or if there’s anything else you’d like to dive into while you’re in the zone. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 1‑minute strict‑focus timer has finished. How would you like to keep the momentum going?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer 2 min\"\n  }\n]"
+[03:00:00.007] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[03:00:00.216] Server  LOG      ✓ Compiled in 9.6s
+[03:00:07.206] Server  LOG     Sending to OpenRouter with System Prompt Length: 1699
+[03:01:26.096] Server  LOG      ✓ Compiled in 6.4s
+[03:01:48.767] Browser LOG     [ChromeTransport] chromePort disconnected
+[03:07:46.675] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Got it! I’ve started a 3‑minute timer for you. Let me know when it’s up or if there’s anything else you’d like to dive into. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it on\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—I’ve got a 3‑minute timer running right now. It should finish shortly, and you’ll know when the time’s up. Let me know if you’d like to do anything else while it’s counting down!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer status rn\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 3‑minute timer is still running—I’ll let you know the moment it finishes. Let me know if there’s anything else you’d like to tackle while we wait!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 3‑minute timer has finished. What would you like to do next?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Hi focus 1 min in strict mode\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! I’ve just started a 1‑minute timer in strict focus mode. Let me know when it’s up or if there’s anything else you’d like to dive into while you’re in the zone. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 1‑minute strict‑focus timer has finished. How would you like to keep the momentum going?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer 2 min\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 2‑minute timer is now running. I’ll let you know the moment it’s up!\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Yes, I am focused.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what should I DO\"\n  }\n]"
+[03:07:46.698] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[03:07:46.833] Browser LOG     Sending message count: 24
+[03:07:50.983] Server  LOG     Sending to OpenRouter with System Prompt Length: 1886
+[03:08:08.156] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Got it! I’ve started a 3‑minute timer for you. Let me know when it’s up or if there’s anything else you’d like to dive into. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it on\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—I’ve got a 3‑minute timer running right now. It should finish shortly, and you’ll know when the time’s up. Let me know if you’d like to do anything else while it’s counting down!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer status rn\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 3‑minute timer is still running—I’ll let you know the moment it finishes. Let me know if there’s anything else you’d like to tackle while we wait!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 3‑minute timer has finished. What would you like to do next?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Hi focus 1 min in strict mode\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! I’ve just started a 1‑minute timer in strict focus mode. Let me know when it’s up or if there’s anything else you’d like to dive into while you’re in the zone. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 1‑minute strict‑focus timer has finished. How would you like to keep the momentum going?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer 2 min\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 2‑minute timer is now running. I’ll let you know the moment it’s up!\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Yes, I am focused.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what should I DO\"\n  },\n  {\n    \"role\": \"tool\",\n    \"content\": \"{\\\"todos\\\":[]}\"\n  }\n]"
+[03:08:08.159] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[03:08:08.216] Browser LOG     Sending message count: 25
+[03:08:10.109] Server  LOG     Sending to OpenRouter with System Prompt Length: 1886
+[03:08:19.019] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Got it! I’ve started a 3‑minute timer for you. Let me know when it’s up or if there’s anything else you’d like to dive into. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it on\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—I’ve got a 3‑minute timer running right now. It should finish shortly, and you’ll know when the time’s up. Let me know if you’d like to do anything else while it’s counting down!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer status rn\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 3‑minute timer is still running—I’ll let you know the moment it finishes. Let me know if there’s anything else you’d like to tackle while we wait!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 3‑minute timer has finished. What would you like to do next?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Hi focus 1 min in strict mode\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! I’ve just started a 1‑minute timer in strict focus mode. Let me know when it’s up or if there’s anything else you’d like to dive into while you’re in the zone. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 1‑minute strict‑focus timer has finished. How would you like to keep the momentum going?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer 2 min\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 2‑minute timer is now running. I’ll let you know the moment it’s up!\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Yes, I am focused.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what should I DO\"\n  },\n  {\n    \"role\": \"tool\",\n    \"content\": \"{\\\"todos\\\":[]}\"\n  },\n  {\n    \"role\": \"tool\",\n    \"content\": \"{\\\"projects\\\":[]}\"\n  }\n]"
+[03:08:19.020] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[03:08:19.085] Browser LOG     Sending message count: 26
+[03:08:22.150] Server  LOG     Sending to OpenRouter with System Prompt Length: 1886
+[03:08:28.577] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what do you know about me\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"I’ve saved a few things about you so far:\\n\\n- **Food preferences:** You’ve indicated that you like KFC and fried chicken. Each of those preferences is marked with an importance rating of 2.\\n\\nThat’s the main detail I have on record at the moment. If there’s anything else you’d like me to remember—goals, habits, mood patterns, or anything else—just let me know and I’ll log it for you.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"start a timer\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! How long would you like the timer to run for?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"3 mins\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Got it! I’ve started a 3‑minute timer for you. Let me know when it’s up or if there’s anything else you’d like to dive into. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it on\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—I’ve got a 3‑minute timer running right now. It should finish shortly, and you’ll know when the time’s up. Let me know if you’d like to do anything else while it’s counting down!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer status rn\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 3‑minute timer is still running—I’ll let you know the moment it finishes. Let me know if there’s anything else you’d like to tackle while we wait!\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"is it done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 3‑minute timer has finished. What would you like to do next?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Hi focus 1 min in strict mode\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Sure thing! I’ve just started a 1‑minute timer in strict focus mode. Let me know when it’s up or if there’s anything else you’d like to dive into while you’re in the zone. 🚀\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"done?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Yes—your 1‑minute strict‑focus timer has finished. How would you like to keep the momentum going?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"timer 2 min\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Your 2‑minute timer is now running. I’ll let you know the moment it’s up!\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"⚠️ STATUS REPORT. You are supposed to be working on: your task. Are you focused?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Yes, I am focused.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"what should I DO\"\n  },\n  {\n    \"role\": \"tool\",\n    \"content\": \"{\\\"todos\\\":[]}\"\n  },\n  {\n    \"role\": \"tool\",\n    \"content\": \"{\\\"projects\\\":[]}\"\n  },\n  {\n    \"role\": \"tool\",\n    \"content\": \"{\\\"goals\\\":[{\\\"id\\\":\\\"tcTCgITDIwnUl2AUt64l\\\",\\\"milestones\\\":[],\\\"conflictingGoalIds\\\":[],\\\"supportingGoalIds\\\":[],\\\"emotionalWeight\\\":\\\"medium\\\",\\\"lifecycle\\\":\\\"completed\\\",\\\"createdAt\\\":1769354517270,\\\"startedAt\\\":1769354521967,\\\"linkedHabitIds\\\":[],\\\"priority\\\":\\\"medium\\\",\\\"archetype\\\":\\\"exploration\\\",\\\"reflection\\\":{\\\"successFeels\\\":\\\"ggwr\\\",\\\"ifQuit\\\":\\\"gwrgwg\\\",\\\"whyMatters\\\":\\\"wrgwrgwg\\\"},\\\"progressSource\\\":\\\"manual\\\",\\\"title\\\":\\\"gggggggg\\\",\\\"linkedTaskIds\\\":[],\\\"difficulty\\\":\\\"moderate\\\",\\\"userId\\\":\\\"BjmfS2fKDub3hREvGJYqX5G55mT2\\\",\\\"lastActivityAt\\\":1769354526831,\\\"completedAt\\\":1769354526831}]}\"\n  }\n]"
+[03:08:28.578] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[03:08:28.646] Browser LOG     Sending message count: 27
+[03:08:30.325] Server  LOG     Sending to OpenRouter with System Prompt Length: 1886
+[03:12:37.623] Server  LOG      ✓ Compiled in 2.5s
+[03:18:29.999] Server  LOG      ✓ Compiled in 5.7s
+[03:18:49.651] Server  LOG      ✓ Compiled in 7.5s
+[03:19:33.344] Server  LOG      ✓ Compiled in 18.8s
+[03:19:46.534] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[03:20:10.443] Server  LOG      ✓ Compiled in 1975ms
+[03:20:13.279] Browser LOG     Firebase Config Project ID: krsna-151ef
+[03:20:13.279] Browser LOG     Auth State Changed: User BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:20:13.412] Browser ERROR   unhandledRejection: i: Failed to connect to MetaMask
+[03:24:41.879] Browser LOG     Sending message count: 2
+[03:24:45.596] Server  LOG     Firebase Config Project ID: "krsna-151ef"
+[03:24:45.795] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Hi can you show me visualization of reading tracker\"\n  }\n]"
+[03:24:45.808] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[03:24:49.219] Server  LOG     Sending to OpenRouter with System Prompt Length: 1943
+[03:25:06.218] Server  LOG      ○ Compiling /api/data/trackers ...
+[03:25:08.025] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Hi can you show me visualization of reading tracker\"\n  },\n  {\n    \"role\": \"tool\",\n    \"content\": \"{\\\"trackers\\\":[{\\\"id\\\":\\\"eoVPIlUACjWZvhPY0qVx\\\",\\\"createdAt\\\":1769350941648,\\\"logs\\\":[{\\\"completed\\\":true,\\\"value\\\":29,\\\"timestamp\\\":1769450051986,\\\"date\\\":1769365800000},{\\\"value\\\":0,\\\"completed\\\":true,\\\"date\\\":1769625000000,\\\"timestamp\\\":1769700415957}],\\\"totalCompletions\\\":2,\\\"userId\\\":\\\"BjmfS2fKDub3hREvGJYqX5G55mT2\\\",\\\"targetValue\\\":20,\\\"name\\\":\\\"Reading\\\",\\\"frequency\\\":\\\"daily\\\",\\\"scheduledTimes\\\":[],\\\"type\\\":\\\"count\\\",\\\"streak\\\":1,\\\"unit\\\":\\\"pages\\\"}]}\"\n  }\n]"
+[03:25:08.052] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[03:25:08.122] Browser LOG     Sending message count: 3
+[03:25:11.048] Server  LOG     Sending to OpenRouter with System Prompt Length: 1943
+[03:25:22.238] Server  LOG     Received messages: "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! I'm your productivity assistant. How can I help you align your goals today?\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Hi can you show me visualization of reading tracker\"\n  },\n  {\n    \"role\": \"tool\",\n    \"content\": \"{\\\"trackers\\\":[{\\\"id\\\":\\\"eoVPIlUACjWZvhPY0qVx\\\",\\\"createdAt\\\":1769350941648,\\\"logs\\\":[{\\\"completed\\\":true,\\\"value\\\":29,\\\"timestamp\\\":1769450051986,\\\"date\\\":1769365800000},{\\\"value\\\":0,\\\"completed\\\":true,\\\"date\\\":1769625000000,\\\"timestamp\\\":1769700415957}],\\\"totalCompletions\\\":2,\\\"userId\\\":\\\"BjmfS2fKDub3hREvGJYqX5G55mT2\\\",\\\"targetValue\\\":20,\\\"name\\\":\\\"Reading\\\",\\\"frequency\\\":\\\"daily\\\",\\\"scheduledTimes\\\":[],\\\"type\\\":\\\"count\\\",\\\"streak\\\":1,\\\"unit\\\":\\\"pages\\\"}]}\"\n  },\n  {\n    \"role\": \"tool\",\n    \"content\": \"{\\\"success\\\":true,\\\"visualized\\\":true}\"\n  }\n]"
+[03:25:22.254] Server  LOG     User ID: "BjmfS2fKDub3hREvGJYqX5G55mT2"
+[03:25:22.292] Browser LOG     Sending message count: 4
+[03:25:24.490] Server  LOG     Sending to OpenRouter with System Prompt Length: 1943
+[03:36:43.742] Browser LOG     Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:36:43.745] Browser LOG     [2;38;2;124;124;124m%s[0m Setting up Journal listener for user: BjmfS2fKDub3hREvGJYqX5G55mT2
+[03:36:45.405] Browser LOG     Journal Snapshot received. Docs: 3

@@ -22,6 +22,8 @@ import {
   Volume2,
   VolumeX,
   Menu,
+  Target,
+  Briefcase,
 } from "lucide-react";
 import clsx from "clsx";
 import { useState, useRef, useEffect } from "react";
@@ -36,7 +38,9 @@ const navItems = [
   { name: "To-Do", href: "/todo", icon: CheckSquare },
   { name: "Focus", href: "/focus", icon: Clock },
   { name: "Journal", href: "/journal", icon: Book },
-  { name: "Habits", href: "/habits", icon: Flame },
+  { name: "Tracker", href: "/tracker", icon: Flame },
+  { name: "Goals", href: "/goals", icon: Target },
+  { name: "Projects", href: "/projects", icon: Briefcase },
   { name: "Settings", href: "/settings", icon: Settings },
 ];
 

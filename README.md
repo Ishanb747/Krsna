@@ -14,7 +14,8 @@ A beautiful, feature-rich productivity application inspired by divine aesthetics
 - **Focus Timer** - Pomodoro-style timer with customizable sessions
 - **Journal** - Daily journaling with rich text support
 - **Habit Tracker** - Build and maintain positive habits
-- **Settings** - Customize your experience
+- **AI Agent** - Your Conversational Accountability partner
+- **Settings** - Customize your experience and Agent personality
 
 ### 🎨 Beautiful Themes
 **Light Themes:**
@@ -42,6 +43,19 @@ A beautiful, feature-rich productivity application inspired by divine aesthetics
 - Interactive UI sounds for clicks and actions
 - Focus timer ticking sounds
 - Mute/unmute toggle
+
+### 🤖 AI Agent System
+> [!IMPORTANT]
+> **Laptop/Desktop Users:** Press **`Ctrl + K`** (or `Cmd + K` on Mac) anywhere in the app to activate **Agent Mode**.
+
+- **Conversational Accountability**: Chat with your data (tasks, habits, projects).
+- **Proactive Nudges**: The agent monitors your focus and checks in autonomously.
+- **Personality Modes**: Choose between **Coach**, **Friend**, **Strict**, or **Guru**.
+- **Coaching Styles**:
+  - **Narrative Mode**: Experience your productivity as an epic story.
+  - **Simulation Mode**: High-intensity regret/future prospection prompts.
+- **Strict Focus**: Activates a "Drill Sergeant" mode with video backgrounds and aggressive check-ins during timers.
+- **Data Visualizations**: Ask the agent to "Show a graph" for trackers, tasks, or goal progress.
 
 ### 🔐 Authentication
 - Firebase Authentication
@@ -161,8 +175,9 @@ krsna/
 ### Getting Started
 1. **Sign Up/Login** - Create an account or log in
 2. **Choose a Theme** - Select from 15+ beautiful themes
-3. **Customize Settings** - Set your preferences
-4. **Start Being Productive!**
+3. **Configure the Agent** - Set your personality mode in Settings
+4. **Agent Shortcut** - Use **`Ctrl + K`** to toggle the AI Assistant
+5. **Start Being Productive!**
 
 ### Features Guide
 

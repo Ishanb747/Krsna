@@ -15,4 +15,7 @@ export interface Todo {
         text: string;
         completed: boolean;
     }[];
+    goalId?: string;
+    projectId?: string;
+    relation?: 'sequential' | 'parallel' | 'optional' | 'repeating';
 }

@@ -61,7 +61,9 @@ export function useTodos() {
         habitId?: string,
         dueDate?: number,
         tags: string[] = [],
-        description: string = ""
+        description: string = "",
+        goalId?: string,
+        projectId?: string
     ) => {
         if (!user) return;
         try {
@@ -79,6 +81,8 @@ export function useTodos() {
                 order: newOrder,
                 tags,
                 description,
+                goalId: goalId || null,
+                projectId: projectId || null,
                 subtasks: [],
             });
         } catch (error) {

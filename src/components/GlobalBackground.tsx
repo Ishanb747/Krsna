@@ -1,9 +1,11 @@
 "use client";
 
+import { useRef, useEffect, useState, memo } from "react";
+import { usePathname } from "next/navigation";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useTimer } from "@/hooks/useTimer";
+import AgentMode from "@/components/AgentMode";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState, memo } from "react";
 
 export default function GlobalBackground() {
   const { theme, themeVariant } = useTheme();
@@ -17,15 +19,18 @@ export default function GlobalBackground() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none">
-      <AnimatePresence mode="wait">
-        {theme === "dark" ? (
-          <MemoizedDarkThemeBackground key={themeVariant} variant={themeVariant} isActive={isActive} />
-        ) : (
-          <MemoizedLightThemeBackground key={themeVariant} variant={themeVariant} isActive={isActive} />
-        )}
-      </AnimatePresence>
-    </div>
+    <>
+      <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none">
+        <AnimatePresence mode="wait">
+          {theme === "dark" ? (
+            <MemoizedDarkThemeBackground key={themeVariant} variant={themeVariant} isActive={isActive} />
+          ) : (
+            <MemoizedLightThemeBackground key={themeVariant} variant={themeVariant} isActive={isActive} />
+          )}
+        </AnimatePresence>
+      </div>
+      <AgentMode />
+    </>
   );
 }
 

@@ -1,5 +1,15 @@
 {
   "/(dashboard)/focus/page": "app/(dashboard)/focus/page.js",
   "/(dashboard)/page": "app/(dashboard)/page.js",
-  "/(dashboard)/todo/page": "app/(dashboard)/todo/page.js"
+  "/(dashboard)/settings/page": "app/(dashboard)/settings/page.js",
+  "/(dashboard)/todo/page": "app/(dashboard)/todo/page.js",
+  "/(dashboard)/tracker/page": "app/(dashboard)/tracker/page.js",
+  "/api/agent/proactive/route": "app/api/agent/proactive/route.js",
+  "/api/chat/route": "app/api/chat/route.js",
+  "/api/data/agent/config/route": "app/api/data/agent/config/route.js",
+  "/api/data/agent/memory/route": "app/api/data/agent/memory/route.js",
+  "/api/data/goals/route": "app/api/data/goals/route.js",
+  "/api/data/projects/route": "app/api/data/projects/route.js",
+  "/api/data/todos/route": "app/api/data/todos/route.js",
+  "/api/data/trackers/route": "app/api/data/trackers/route.js"
 }

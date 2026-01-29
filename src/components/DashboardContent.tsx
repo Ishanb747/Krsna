@@ -1,40 +1,44 @@
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
-import { useHabits } from "@/hooks/useHabits";
+import { useTrackers } from "@/hooks/useTrackers";
 import { useTodos } from "@/hooks/useTodos";
+import { useGoals } from "@/hooks/useGoals";
+import { useProjects } from "@/hooks/useProjects";
 import { useJournal } from "@/hooks/useJournal";
 import { useEffect } from "react";
-import { CheckSquare, Clock, Flame, Book, BarChart2, ChevronLeft } from "lucide-react";
+import { CheckSquare, Clock, Flame, Book, BarChart2, ChevronLeft, Target, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function DashboardContent({ onNavigateBack }: { onNavigateBack: () => void }) {
   const { user } = useAuth();
-  const { habits } = useHabits();
+  const { trackers } = useTrackers();
+  const { goals } = useGoals();
+  const { projects } = useProjects();
   const { todos, addTodo } = useTodos();
   const { entries } = useJournal();
 
-  // Auto-sync Habits to Todos
+  // Auto-sync Trackers to Todos
   useEffect(() => {
-    if (!habits.length || !user) return;
+    if (!trackers.length || !user) return;
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const todayTimestamp = today.getTime();
 
-    habits.forEach((habit) => {
-      // Check if this habit is already in today's todos using habitId
-      const habitTodoExists = todos.some(
+    trackers.forEach((tracker) => {
+      // Check if this tracker is already in today's todos using habitId (keeping field name for compatibility)
+      const trackerTodoExists = todos.some(
         (todo) =>
-          todo.habitId === habit.id &&
+          todo.habitId === tracker.id &&
           todo.createdAt >= todayTimestamp
       );
 
-      if (!habitTodoExists) {
-        addTodo(`Habit: ${habit.name}`, "medium", habit.id);
+      if (!trackerTodoExists) {
+        addTodo(`Tracker: ${tracker.name}`, "medium", tracker.id);
       }
     });
-  }, [habits, user, todos, addTodo]);
+  }, [trackers, user, todos, addTodo]);
 
   const isToday = (timestamp: number | undefined) => {
     if (!timestamp) return false;
@@ -48,7 +52,10 @@ export default function DashboardContent({ onNavigateBack }: { onNavigateBack: (
   const todaysTodos = todos.filter(t => isToday(t.dueDate));
   const completedTodos = todaysTodos.filter((t) => t.completed).length;
   const activeTodos = todaysTodos.filter((t) => !t.completed).length;
-  const totalHabitStreaks = habits.reduce((acc, curr) => acc + curr.streak, 0);
+  const totalTrackerStreaks = trackers.reduce((acc, curr) => acc + curr.streak, 0);
+  
+  const activeGoals = goals.filter(g => g.lifecycle === "active").length;
+  const activeProjects = projects.filter(p => p.lifecycle === "active").length;
 
   return (
     <div className="relative">
@@ -88,16 +95,36 @@ export default function DashboardContent({ onNavigateBack }: { onNavigateBack: (
           <p className="text-3xl font-bold">0m focused</p>
         </div>
 
-        {/* Habit Streak */}
+        {/* Tracker Streak */}
         <div className="cozy-card p-6">
           <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-xl font-bold">Habit Streak</h3>
+            <h3 className="text-xl font-bold">Tracker Streak</h3>
             <Flame className="h-6 w-6 text-[var(--color-danger)]" />
           </div>
           <p className="text-3xl font-bold">
-            {Math.max(...habits.map((h) => h.streak), 0)} day best
+            {Math.max(...trackers.map((t) => t.streak), 0)} day best
           </p>
-           <p className="text-sm opacity-70">{totalHabitStreaks} total streak days</p>
+           <p className="text-sm opacity-70">{totalTrackerStreaks} total streak days</p>
+        </div>
+
+        {/* Active Goals */}
+        <div className="cozy-card p-6">
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="text-xl font-bold">Active Goals</h3>
+            <Target className="h-6 w-6 text-[var(--color-primary)]" />
+          </div>
+          <p className="text-3xl font-bold">{activeGoals}</p>
+          <p className="text-sm opacity-70">Pursuing {goals.length} outcomes</p>
+        </div>
+
+        {/* Active Projects */}
+        <div className="cozy-card p-6">
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="text-xl font-bold">Active Projects</h3>
+            <Briefcase className="h-6 w-6 text-[var(--color-accent)]" />
+          </div>
+          <p className="text-3xl font-bold">{activeProjects}</p>
+          <p className="text-sm opacity-70">Executing {projects.length} plans</p>
         </div>
 
         {/* Journal Entries (Merged from Analytics) */}

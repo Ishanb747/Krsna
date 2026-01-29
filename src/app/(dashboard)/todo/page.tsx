@@ -2,17 +2,21 @@
 
 import { useState, useEffect } from "react";
 import { useTodos } from "@/hooks/useTodos";
-import { useHabits } from "@/hooks/useHabits";
+import { useTrackers } from "@/hooks/useTrackers";
+import { useGoals } from "@/hooks/useGoals";
+import { useProjects } from "@/hooks/useProjects";
 import { useTimer } from "@/hooks/useTimer";
 import { useSound } from "@/contexts/SoundContext";
 import { useRouter } from "next/navigation";
-import { Trash2, CheckCircle, Circle, Plus, Star, Play, Flame, GripVertical, ChevronDown, ChevronUp, Tag } from "lucide-react";
+import { Trash2, CheckCircle, Circle, Plus, Star, Play, Flame, GripVertical, ChevronDown, ChevronUp, Tag, Target, Briefcase } from "lucide-react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import clsx from "clsx";
 
 export default function TodoPage() {
   const { todos, loading, error, addTodo, toggleTodo, deleteTodo, reorderTodos, updateTodo } = useTodos();
-  const { habits, toggleHabit } = useHabits();
+  const { trackers, logTracker, getTodayLog } = useTrackers();
+  const { goals } = useGoals();
+  const { projects } = useProjects();
   const { setCurrentTask } = useTimer();
   const { playSuccess, playDelete } = useSound();
   const router = useRouter();
@@ -20,6 +24,8 @@ export default function TodoPage() {
   const [newTags, setNewTags] = useState("");
   const [newDescription, setNewDescription] = useState("");
   const [dueDate, setDueDate] = useState<string>(new Date().toISOString().split('T')[0]);
+  const [selectedGoalId, setSelectedGoalId] = useState("");
+  const [selectedProjectId, setSelectedProjectId] = useState("");
   const [isExpandedInput, setIsExpandedInput] = useState(false);
   const [expandedTodoId, setExpandedTodoId] = useState<string | null>(null);
 
@@ -32,44 +38,42 @@ export default function TodoPage() {
     ? todos.filter(todo => todo.tags?.includes(filterTag))
     : todos;
 
-  // Sync active habits to today's todos
+  // Sync active trackers to today's todos
   useEffect(() => {
-    if (loading || !habits.length) return;
+    if (loading || !trackers.length) return;
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const todayTimestamp = today.getTime();
 
-    habits.forEach((habit) => {
-      // Check if this habit is already in today's todos using habitId
-      const habitTodoExists = todos.some(
+    trackers.forEach((tracker) => {
+      // Check if this tracker is already in today's todos using habitId (keeping field name for compatibility)
+      const trackerTodoExists = todos.some(
         (todo) =>
-          todo.habitId === habit.id &&
+          todo.habitId === tracker.id &&
           todo.createdAt >= todayTimestamp
       );
 
-      if (!habitTodoExists) {
-        addTodo(`Habit: ${habit.name}`, "medium", habit.id);
+      if (!trackerTodoExists) {
+        addTodo(`Tracker: ${tracker.name}`, "medium", tracker.id);
       }
     });
-  }, [habits, todos, loading, addTodo]);
+  }, [trackers, todos, loading, addTodo]);
 
   const handleToggleTodo = async (todoId: string, completed: boolean, habitId?: string) => {
     await toggleTodo(todoId, completed);
 
     if (habitId) {
-      const habit = habits.find(h => h.id === habitId);
-      if (!habit) return;
+      const tracker = trackers.find(t => t.id === habitId);
+      if (!tracker) return;
 
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const todayTimestamp = today.getTime();
-      const isHabitCompletedToday = habit.completedDates.includes(todayTimestamp);
+      const todayLog = getTodayLog(tracker);
+      const isTrackerCompletedToday = todayLog?.completed;
 
-      if (completed && !isHabitCompletedToday) {
-        await toggleHabit(habitId);
-      } else if (!completed && isHabitCompletedToday) {
-        await toggleHabit(habitId);
+      if (completed && !isTrackerCompletedToday) {
+        await logTracker(habitId, true);
+      } else if (!completed && isTrackerCompletedToday) {
+        await logTracker(habitId, false);
       }
     }
   };
@@ -84,10 +88,12 @@ export default function TodoPage() {
 
     const tagsArray = newTags.split(',').map(t => t.trim()).filter(t => t);
 
-    await addTodo(newTodo, "medium", undefined, dueDateTimestamp, tagsArray, newDescription);
+    await addTodo(newTodo, "medium", undefined, dueDateTimestamp, tagsArray, newDescription, selectedGoalId || undefined, selectedProjectId || undefined);
     setNewTodo("");
     setNewTags("");
     setNewDescription("");
+    setSelectedGoalId("");
+    setSelectedProjectId("");
     setDueDate(new Date().toISOString().split('T')[0]);
     setIsExpandedInput(false);
   };
@@ -226,6 +232,36 @@ export default function TodoPage() {
                   style={{ color: "var(--color-text)" }}
                 />
               </div>
+              <div className="flex gap-2">
+                <select
+                  value={selectedGoalId}
+                  onChange={(e) => {
+                    setSelectedGoalId(e.target.value);
+                    if (e.target.value) setSelectedProjectId(""); // Clear project if goal selected (optional preference)
+                  }}
+                  className="flex-1 rounded-[var(--border-radius)] border border-[var(--color-text)]/20 bg-transparent px-2 py-1 text-sm outline-none focus:border-[var(--color-primary)]"
+                  style={{ color: "var(--color-text)" }}
+                >
+                  <option value="">No Goal</option>
+                  {goals.filter(g => g.lifecycle === "active").map(g => (
+                    <option key={g.id} value={g.id}>{g.title}</option>
+                  ))}
+                </select>
+                <select
+                  value={selectedProjectId}
+                  onChange={(e) => {
+                    setSelectedProjectId(e.target.value);
+                    if (e.target.value) setSelectedGoalId(""); // Clear goal if project selected (optional)
+                  }}
+                  className="flex-1 rounded-[var(--border-radius)] border border-[var(--color-text)]/20 bg-transparent px-2 py-1 text-sm outline-none focus:border-[var(--color-primary)]"
+                  style={{ color: "var(--color-text)" }}
+                >
+                  <option value="">No Project</option>
+                  {projects.filter(p => p.lifecycle === "active").map(p => (
+                    <option key={p.id} value={p.id}>{p.title}</option>
+                  ))}
+                </select>
+              </div>
               <div className="flex justify-end gap-2">
                 <button
                   type="button"
@@ -333,6 +369,16 @@ export default function TodoPage() {
                             {todo.habitId && (
                               <div title="Habit Task">
                                  <Flame className="h-4 w-4 text-[var(--color-danger)]" />
+                              </div>
+                            )}
+                            {todo.goalId && (
+                              <div title="Goal Task">
+                                 <Target className="h-4 w-4 text-[var(--color-primary)]" />
+                              </div>
+                            )}
+                            {todo.projectId && (
+                              <div title="Project Task">
+                                 <Briefcase className="h-4 w-4 text-[var(--color-accent)]" />
                               </div>
                             )}
                           </div>
